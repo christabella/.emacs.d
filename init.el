@@ -17,6 +17,27 @@
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-message t)
 
+;; Set sentence detection to just one space
+(setq sentence-end-double-space nil)
+
+;; To follow links with RET
+(setq org-return-follows-link t)
+
+;; To open links of type [~/test.pdf::3] i.e. open file at page 3
+(delete '("\\.pdf\\'" . default) org-file-apps)
+(add-to-list 'org-file-apps '("\\.pdf::\\([0-9]+\\)\\'" . "evince \"%s\" -p %1"))
+
+;; Turns - [X] into ☑ and - [ ] into ☐ for html export??
+
+(defun sacha/org-html-checkbox (checkbox)
+  "Format CHECKBOX into HTML."
+  (case checkbox (on "<span class=\"check\">&#x2611;</span>") ; checkbox (checked)
+        (off "<span class=\"checkbox\">&#x2610;</span>")
+        (trans "<code>[-]</code>")
+        (t "")))
+(defadvice org-html-checkbox (around sacha activate)
+  (setq ad-return-value (sacha/org-html-checkbox (ad-get-arg 0))))
+
 ;; Install use-package
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -38,41 +59,99 @@
 
 ;; Change backup directory
 (setq backup-directory-alist
-      '((".*" . ,temporary-file-directory)))
+      `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
-      '((".*" ,temporari-file-directory t)))
+      `((".*" ,temporary-file-directory t)))
 
 ;; Overwrite highlighted text
 (delete-selection-mode +1)
 
+;; Show matching parentheses
+(show-paren-mode +1)
+
 ;; Default font
 (add-to-list 'default-frame-alist
-	     '(font . "Fira Code-12"))
+             '(font . "Fira Code-12"))
 
 ;; Set 2 spaces indentation
+
 (setq-default tab-width 2)
 (setq-default indent-tabs-mode nil)
 
 ;; Set theme
-(use-package tao-theme
-  :init
-  (load-theme 'tao-yang t))
+;; (use-package tao-theme
+;; :init
+;; (load-theme 'tao-yang t))
 
-;; Install ace-window
+
+(use-package zenburn-theme
+  :init
+  (load-theme 'zenburn t))
+
+;; Install packages
+;; Window management
 (use-package ace-window
   :bind (("M-q" . ace-window)))
 
-(use-package avy
-  :bind (("C-q" . avy-goto-char)
-	 ("C-w" . avy-goto-char-2)))
+;; Automatic indentation
+(use-package aggressive-indent
+  :diminish aggressive-indent-mode
+  :config (add-hook 'prog-mode-hook 'aggressive-indent-mode))
 
-;; Install Ivy, Counsel, and Swiper
+;; Go-to-char functionality
+(use-package avy
+  :bind (("C-," . avy-goto-char)
+         ("C-." . avy-goto-char-2)))
+
+;; Beacon
+(use-package beacon
+  :diminish beacon-mode
+  :config (progn
+            (beacon-mode 1)
+            (setq beacon-push-mark 10)))
+
+;; Code completion
+(use-package company
+  :defer 5
+  :diminish company-mode
+  :init (progn
+          (add-hook 'after-init-hook 'global-company-mode)
+          (setq company-dabbrev-ignore-case nil
+                company-dabbrev-code-ignore-case nil
+                company-dabbrev-downcase nil
+                company-idle-delay 0
+                company-begin-commands '(self-insert-command)
+                company-transformers '(company-sort-by-occurrence))
+          (use-package company-quickhelp
+            :config (company-quickhelp-mode 1))))
+
+;; 
 (use-package counsel)
+
+(use-package expand-region
+  :bind (("C-=" . er/expand-region)))
+
+(use-package magit
+  :bind (("C-x g" . magit-status)
+         ("C-x M-g" . magit-blame))
+  :init (setq magit-auto-revert-mode nil)
+  :config
+  (add-hook 'magit-mode-hook 'hl-line-mode))
+
+(use-package multiple-cursors
+  :bind (("C->" . mc/mark-next-like-this)
+         ("C-<" . mc/mark-previous-like-this)
+         ("C-c C-<" . mc/mark-all-like-this)))
+
+(use-package nyan-mode
+  :config
+  (add-hook 'after-init-hook 'nyan-mode))
+
 (use-package swiper
   :bind*
   (("C-s" . swiper)
-   ("C-c C-r" . ivy-resumqe)
-   ("M-a" . counsel-M-x)
+   ("C-c C-r" . ivy-resume)
+   ("M-x" . counsel-M-x)
    ("C-x C-f" . counsel-find-file)
    ("C-c h f" . counsel-describe-function)
    ("C-c h v" . counsel-describe-variable)
@@ -82,38 +161,59 @@
    ("C-c j" . counsel-git-grep)
    ("C-c k" . counsel-ag)
    ("C-c l" . counsel-locate))
-   :config
-   (progn
-     (ivy-mode 1)
-     (setq ivy-use-virtual-buffers t)
-     (define-key read-expression-map (kbd "C-r") #'counsel-expression-history)
-     (ivy-set-actions
-      'counsel-find-file
-      '(("d" (lambda(x) (delete-file (expand-file-name x)))
-	 "delete"
-	 )))
-     (ivy-set-actions
-      'ivy-switch-buffer
-      '(("k"
-	 (lambda (x)
-	   (kill-buffer x)
-	   (ivy--reset-state ivy-last))
-	 "kill")
-	("j"
-	 ivy--switch-buffer-other-window-action
-	 "other window"))))))
-
-(use-package magit
-  :bind (("C-x g" . magit-status)
-	 ("C-x M-g" . magit-blame))
-  :init (setq magit-auto-revert-mode nil)
   :config
-  (add-hook 'magit-mode-hook 'hl-line-mode))
+  (progn
+    (ivy-mode 1)
+    (setq ivy-use-virtual-buffers t)
+    (define-key read-expression-map (kbd "C-r") #'counsel-expression-history)
+    (ivy-set-actions
+     'counsel-find-file
+     '(("d" (lambda(x) (delete-file (expand-file-name x)))
+        "delete"
+        )))
+    (ivy-set-actions
+     'ivy-switch-buffer
+     '(("k"
+        (lambda (x)
+          (kill-buffer x)
+          (ivy--reset-state ivy-last))
+        "kill")
+       ("j"
+        ivy--switch-buffer-other-window-action
+        "other window")))))
 
-(show-paren-mode +1)
+(use-package which-key
+  :diminish which-key-mode
+  :config (add-hook 'after-init-hook 'which-key-mode))
 
-(use-package aggressive-indent
-  :diminish aggressive-indent-mode
-  :config (add-hook 'prog-mode-hook 'aggressive-indent-mode))
+(use-package yasnippet
+  :defer 5
+  :init (add-hook 'after-init-hook 'yas-global-mode)
+  :config (setq yas-snippet-dirs '("~/.emacs.d/snippets/")))
 
+;; Move Region
+(defun move-region (start end n)
+  "Move the current region up or down by N lines."
+  (interactive "r\np")
+  (let ((line-text (delete-and-extract-region start end)))
+    (forward-line n)
+    (let ((start (point)))
+      (insert line-text)
+      (setq deactivate-mark nil)
+      (set-mark start))))
+
+(defun move-region-up (start end n)
+  "Move the current line up by N lines."
+  (interactive "r\np")
+  (move-region start end (if (null n) -1 (- n))))
+
+(defun move-region-down (start end n)
+  "Move the current line down by N lines."
+  (interactive "r\np")
+  (move-region start end (if (null n) 1 n)))
+
+(global-set-key (kbd "M-<up>") 'move-region-up)
+(global-set-key (kbd "M-<down>") 'move-region-down)
+
+;; End of packages
 (load custom-file)
