@@ -1,4 +1,5 @@
 *~
-/elpa/ace-window-20160225.819/ace-window-autoloads.el
 elpa/*
-/games/snake-scores
+/games/*
+recentf
+.mc-lists.el
