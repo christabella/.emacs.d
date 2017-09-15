@@ -1,1 +1,1 @@
-("~/Repos/Carousell-Django/")
+("~/.emacs.d/" "~/Repos/Carousell-Django/")
