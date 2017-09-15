@@ -3,7 +3,8 @@
   (require 'package)
   (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
   (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
-  (package-initialize))
+  (package-initialize)
+  )
 
 ;; Set user details
 (setq user-full-name "Christabella Irwanto"
@@ -98,6 +99,15 @@
 (use-package aggressive-indent
   :diminish aggressive-indent-mode
   :config (add-hook 'prog-mode-hook 'aggressive-indent-mode))
+
+;; ANaconda
+(use-package anaconda-mode
+  :config ((add-hook 'python-mode-hook 'anaconda-mode)
+  (add-hook 'python-mode-hook 'anaconda-eldoc-mode))
+  )
+
+;; Disable aggressive-indent-mode in Python
+(add-hook 'python-mode-hook (lambda () (aggressive-indent-mode -1)))
 
 ;; Go-to-char functionality
 (use-package avy
