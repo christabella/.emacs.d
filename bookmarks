@@ -1,0 +1,15 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("emacs.org"
+ (filename . "~/.org/emacs.org")
+ (front-context-string . "C-M-a runs the c")
+ (rear-context-string)
+ (position . 3))
+("carousell.org"
+ (filename . "~/.org/carousell.org")
+ (front-context-string . "\n*** managers ar")
+ (rear-context-string . "o collection_id\n")
+ (position . 6083))
+)
