@@ -102,9 +102,9 @@
 
 ;; ANaconda
 (use-package anaconda-mode
-  :config ((add-hook 'python-mode-hook 'anaconda-mode)
+  :init
+  (add-hook 'python-mode-hook 'anaconda-mode)
   (add-hook 'python-mode-hook 'anaconda-eldoc-mode))
-  )
 
 ;; Disable aggressive-indent-mode in Python
 (add-hook 'python-mode-hook (lambda () (aggressive-indent-mode -1)))
