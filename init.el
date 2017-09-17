@@ -29,6 +29,9 @@
 ;; To follow links with RET
 (setq org-return-follows-link t)
 
+;; Globally set Org tags
+(setq org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("question" . ?q)))
+
 ;; Turns - [X] into ☑ and - [ ] into ☐ for html export??
 
 (defun sacha/org-html-checkbox (checkbox)
