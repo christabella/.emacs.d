@@ -29,6 +29,9 @@
 ;; To follow links with RET
 (setq org-return-follows-link t)
 
+;; M-x without a caret
+(setq ivy-initial-inputs-alist nil)
+
 ;; Globally set Org tags
 (setq org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("question" . ?q)))
 
@@ -75,8 +78,8 @@
 (show-paren-mode +1)
 
 ;; Default font
-(add-to-list 'default-frame-alist
-             '(font . "Fira Code-12"))
+;; (add-to-list 'default-frame-alist
+;; '(font . "Fira Code-12"))
 
 ;; Set 2 spaces indentation
 
