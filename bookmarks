@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("emacs.org"
+(("config.fish"
+ (filename . "~/.config/fish/config.fish")
+ (front-context-string . "# For Postgres.a")
+ (rear-context-string)
+ (position . 1))
+("emacs.org"
  (filename . "~/.org/emacs.org")
  (front-context-string . "C-M-a runs the c")
  (rear-context-string)

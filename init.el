@@ -6,6 +6,17 @@
   (package-initialize)
   )
 
+;; Make dired less verbose
+;; (require 'dired-details)
+;; (setq-default dired-details-hidden-string "-- ")
+;; (dired-details-install)
+
+;; Dired emoji https://github.com/jtbm37/all-the-icons-dired
+(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+
+(add-hook 'after-init-hook #'global-emojify-mode)
+
+
 ;; Set user details
 (setq user-full-name "Christabella Irwanto"
       user-mail-address "christabella.irwanto@gmail.com")
@@ -79,7 +90,7 @@
 
 ;; Default font
 ;; (add-to-list 'default-frame-alist
-;; '(font . "Fira Code-12"))
+;;              '(font . "Fira Code-12"))
 
 ;; Set 2 spaces indentation
 
