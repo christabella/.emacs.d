@@ -15,13 +15,14 @@
 ;; (dired-details-install)
 
 ;; Dired emoji https://github.com/jtbm37/all-the-icons-dired
+;; (Note: Had to `M-x all-the-icons-install-fonts` and `M-x unicode-fonts-setup`)
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 
 ;; Move to trash instead of delete
 (setq delete-by-moving-to-trash t)
 
 ;; List directories first in dired
-;; First, gotta use gls
+;; First, gotta use GNU's gls (Note: `brew install coreutils`)
 (let ((gls "/usr/local/bin/gls"))
   (if (file-exists-p gls)
       (setq insert-directory-program gls)))
