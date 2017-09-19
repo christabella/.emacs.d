@@ -1,3 +1,6 @@
+;;; package --- Summary
+;;; Bella's init file
+
 ;; Enable package archives
 (when (>= emacs-major-version 24)
   (require 'package)
@@ -14,6 +17,24 @@
 ;; Dired emoji https://github.com/jtbm37/all-the-icons-dired
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 
+;; Move to trash instead of delete
+(setq delete-by-moving-to-trash t)
+
+;; List directories first in dired
+(setq dired-listing-switches "-aBhl  --group-directories-first")
+
+;; Enable recursive copies and deletes
+(setq dired-recursive-copies (quote always))
+(setq dired-recursive-deletes (quote top))
+
+;; Preview files in dired
+(use-package peep-dired
+  :bind (:map peep-dired-mode-map
+              ("SPC" . nil)
+              ("<backspace>" . nil))
+  (setq peep-dired-cleanup-eagerly t))
+
+;; Emoji
 (add-hook 'after-init-hook #'global-emojify-mode)
 
 
@@ -221,7 +242,7 @@
   :config (setq yas-snippet-dirs '("~/.emacs.d/snippets/")))
 
 ;; Move Region
-(defun move-region (start end n)
+(defun move-region ((as START) end n)
   "Move the current region up or down by N lines."
   (interactive "r\np")
   (let ((line-text (delete-and-extract-region start end)))
@@ -231,12 +252,12 @@
       (setq deactivate-mark nil)
       (set-mark start))))
 
-(defun move-region-up (start end n)
+(defun move-region-up ((as START) end n)
   "Move the current line up by N lines."
   (interactive "r\np")
   (move-region start end (if (null n) -1 (- n))))
 
-(defun move-region-down (start end n)
+(defun move-region-down ((as START) end n)
   "Move the current line down by N lines."
   (interactive "r\np")
   (move-region start end (if (null n) 1 n)))
@@ -246,3 +267,6 @@
 
 ;; End of packages
 (load custom-file)
+
+(provide 'init)
+;;; init.el ends here
