@@ -21,6 +21,10 @@
 (setq delete-by-moving-to-trash t)
 
 ;; List directories first in dired
+;; First, gotta use gls
+(let ((gls "/usr/local/bin/gls"))
+  (if (file-exists-p gls)
+      (setq insert-directory-program gls)))
 (setq dired-listing-switches "-aBhl  --group-directories-first")
 
 ;; Enable recursive copies and deletes
@@ -36,7 +40,8 @@
 
 ;; Emoji
 (add-hook 'after-init-hook #'global-emojify-mode)
-
+(use-package emojify
+  :bind (("C-c e" . emojify-insert-emoji)))
 
 ;; Set user details
 (setq user-full-name "Christabella Irwanto"
@@ -264,6 +269,33 @@
 
 (global-set-key (kbd "M-<up>") 'move-region-up)
 (global-set-key (kbd "M-<down>") 'move-region-down)
+
+
+(require 'doom-themes)
+
+;; Global settings (defaults)
+(setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+      doom-themes-enable-italic t) ; if nil, italics is universally disabled
+
+;; Load the theme (doom-one, doom-molokai, etc); keep in mind that each theme
+;; may have their own settings.
+;; doom-one: doom-themes' flagship theme, inspired by Atom's One Dark themes
+;; doom-vibrant: a more vibrant version of doom-one
+;; doom-molokai: based on Textmate's monokai
+;; doom-nova: adapted from Nova (thanks to bigardone)
+;; doom-one-light: light version of doom-one (thanks to ztlevi)
+;; doom-tomorrow-night:
+(load-theme 'doom-nova t)
+
+;; Enable flashing mode-line on errors
+(doom-themes-visual-bell-config)
+
+;; Enable custom neotree theme
+(doom-themes-neotree-config)  ; all-the-icons fonts must be installed!
+
+;; Corrects (and improves) org-mode's native fontification.
+(doom-themes-org-config)
+
 
 ;; End of packages
 (load custom-file)
