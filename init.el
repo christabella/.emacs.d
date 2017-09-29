@@ -40,6 +40,19 @@
               ("<backspace>" . nil))
   (setq peep-dired-cleanup-eagerly t))
 
+(use-package projectile
+  :demand t
+  :init (projectile-global-mode 1)
+  :bind-keymap* ("C-x p" . projectile-command-map)
+  :config
+  (require 'projectile)
+  (use-package counsel-projectile 
+    :bind (("s-p" . counsel-projectile)
+           ("s-f" . counsel-projectile-find-file)
+           ("s-b" . counsel-projectile-switch-to-buffer)))
+  (setq projectile-use-git-grep t)
+  (setq projectile-completion-system 'ivy))    
+
 ;; Emoji
 (add-hook 'after-init-hook #'global-emojify-mode)
 (use-package emojify
@@ -52,7 +65,8 @@
 ;; Copy path from shell
 (use-package exec-path-from-shell
   :config
-  (exec-path-from-shell-initialize))
+  (exec-path-from-shell-initialize)
+  (exec-path-from-shell-copy-env "GOPATH"))
 
 ;; Remove UI cruft
 (tooltip-mode -1)
