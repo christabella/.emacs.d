@@ -6,6 +6,7 @@
   (require 'package)
   (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
   (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+  (add-to-list 'load-path "~/.emacs.d/lisp/")
   (package-initialize)
   )
 
@@ -303,8 +304,13 @@
 ;; Corrects (and improves) org-mode's native fontification.
 (doom-themes-org-config)
 
+;; ---------------------------------------- Go ----------------------------------
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; React
+(require 'go-autocomplete)
+(require 'auto-complete-config)
+(ac-config-default)
+
+;; -------------------------------------- React ----------------------------------
 (defun jethro/setup-rjsx-mode ()  
   (setq-local emmet-expand-jsx-className? t)
   (setq-local web-mode-enable-auto-quoting nil)
