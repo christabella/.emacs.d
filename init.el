@@ -73,6 +73,9 @@
 ;; Globally set Org tags
 (setq org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("question" . ?q)))
 
+;;; syntax highlighting for org
+(setq org-src-fontify-natively t)
+
 ;; Turns - [X] into ☑ and - [ ] into ☐ for html export??
 
 (defun sacha/org-html-checkbox (checkbox)
@@ -122,6 +125,8 @@
 ;; Set 2 spaces indentation
 
 (setq-default tab-width 2)
+(setq-default js-indent-level 2)
+(setq-default js-switch-indent-offset js-indent-level)
 (setq-default indent-tabs-mode nil)
 
 ;; Set theme
@@ -248,7 +253,7 @@
   :config (setq yas-snippet-dirs '("~/.emacs.d/snippets/")))
 
 ;; Move Region
-(defun move-region ((as START) end n)
+(defun move-region (start end n)
   "Move the current region up or down by N lines."
   (interactive "r\np")
   (let ((line-text (delete-and-extract-region start end)))
@@ -258,18 +263,19 @@
       (setq deactivate-mark nil)
       (set-mark start))))
 
-(defun move-region-up ((as START) end n)
+(defun move-region-up (start end n)
   "Move the current line up by N lines."
   (interactive "r\np")
   (move-region start end (if (null n) -1 (- n))))
 
-(defun move-region-down ((as START) end n)
+(defun move-region-down (start end n)
   "Move the current line down by N lines."
   (interactive "r\np")
   (move-region start end (if (null n) 1 n)))
 
 (global-set-key (kbd "M-<up>") 'move-region-up)
 (global-set-key (kbd "M-<down>") 'move-region-down)
+
 
 
 (require 'doom-themes)
@@ -286,7 +292,7 @@
 ;; doom-nova: adapted from Nova (thanks to bigardone)
 ;; doom-one-light: light version of doom-one (thanks to ztlevi)
 ;; doom-tomorrow-night:
-(load-theme 'doom-nova t)
+(load-theme 'doom-one t)
 
 ;; Enable flashing mode-line on errors
 (doom-themes-visual-bell-config)
@@ -296,6 +302,40 @@
 
 ;; Corrects (and improves) org-mode's native fontification.
 (doom-themes-org-config)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; React
+(defun jethro/setup-rjsx-mode ()  
+  (setq-local emmet-expand-jsx-className? t)
+  (setq-local web-mode-enable-auto-quoting nil)
+  (setq js2-strict-missing-semi-warning nil))
+
+(use-package rjsx-mode
+  :init
+  (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
+  (add-to-list 'auto-mode-alist '("\\.react.js\\'" . rjsx-mode))
+  (add-to-list 'auto-mode-alist '("\\index.android.js\\'" . rjsx-mode))
+  (add-to-list 'auto-mode-alist '("\\index.ios.js\\'" . rjsx-mode))
+  (add-to-list 'magic-mode-alist '("/\\*\\* @jsx React\\.DOM \\*/" . rjsx-mode))
+  (add-to-list 'magic-mode-alist '("import React" . rjsx-mode))
+  (add-to-list 'magic-mode-alist '("^/*Enable flow type*/" . rjsx-mode))
+  (add-to-list 'magic-mode-alist '("^// @flow" . rjsx-mode))
+  (add-hook 'rjsx-mode-hook 'jethro/setup-rjsx-mode)
+  (add-hook 'rjsx-mode-hook 'tern-mode)
+  (add-hook 'rjsx-mode-hook 'emmet-mode)
+  :config
+  (with-eval-after-load 'flycheck
+    (dolist (checker '(javascript-eslint javascript-standard))
+      (flycheck-add-mode checker 'rjsx-mode)))
+  (defun jethro/line-align-closing-bracket ()
+    "Workaround sgml-mode and align closing bracket with opening bracket"
+    (save-excursion
+      (beginning-of-line)
+      (when (looking-at-p "^ +\/?> *$")
+        (delete-char sgml-basic-offset))))
+  (advice-add #'js-jsx-indent-line
+              :after
+              #'jethro/line-align-closing-bracket))
 
 
 ;; End of packages

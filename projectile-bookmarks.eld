@@ -1,1 +1,1 @@
-("~/.emacs.d/" "~/Repos/Carousell-Pro/" "~/Repos/Carousell-Django/" "~/Repos/x-carousell/")
+("~/.emacs.d/" "~/code/go/src/github.com/carousell/Cats/" "~/Repos/Carousell-Pro/" "~/Repos/Game-Of-Codes/bookreturn/" "~/Repos/Game-Of-Codes/islands/" "~/Repos/bookreturn/" "~/Repos/x-carousell/" "~/Repos/Carousell-Django/")
