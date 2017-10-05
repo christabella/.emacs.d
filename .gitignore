@@ -3,3 +3,4 @@ elpa/*
 /games/*
 recentf
 .mc-lists.el
+/ac-comphist.dat
