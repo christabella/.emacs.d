@@ -65,8 +65,9 @@
 ;; Copy path from shell
 (use-package exec-path-from-shell
   :config
+  (exec-path-from-shell-copy-env "GOPATH")
   (exec-path-from-shell-initialize)
-  (exec-path-from-shell-copy-env "GOPATH"))
+  )
 
 ;; Remove UI cruft
 (tooltip-mode -1)
@@ -317,8 +318,8 @@
 (global-set-key [remap kill-whole-line] #'crux-kill-whole-line)
 (global-set-key (kbd "C-c d") #'crux-duplicate-current-line-or-region)
 (global-set-key (kbd "C-c M-d") #'crux-duplicate-and-comment-current-line-or-region)
-(global-set-key (kbd "s-/") (crux-with-region-or-line comment-or-uncomment-region))
-
+(crux-with-region-or-line comment-or-uncomment-region)
+(global-set-key (kbd "s-/") 'comment-or-uncomment-region)
 ;; Doom theme
 (require 'doom-themes)
 
@@ -383,8 +384,9 @@
 (with-eval-after-load 'go-mode
   (require 'go-autocomplete))
 
-;; If the go-guru.el file is in the load path, this will load it.
+;; If the go-guru.el and go-rename.el files are in the load path, this will load it.
 (require 'go-guru)
+(require 'go-rename)
 
 ;; -------------------------------------- React ----------------------------------
 (defun jethro/setup-rjsx-mode ()  
