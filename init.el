@@ -46,12 +46,12 @@
   :bind-keymap* ("C-x p" . projectile-command-map)
   :config
   (require 'projectile)
-  (use-package counsel-projectile 
+  (use-package counsel-projectile
     :bind (("s-p" . counsel-projectile)
            ("s-f" . counsel-projectile-find-file)
            ("s-b" . counsel-projectile-switch-to-buffer)))
   (setq projectile-use-git-grep t)
-  (setq projectile-completion-system 'ivy))    
+  (setq projectile-completion-system 'ivy))
 
 ;; Emoji
 (add-hook 'after-init-hook #'global-emojify-mode)
@@ -201,7 +201,7 @@
           (use-package company-quickhelp
             :config (company-quickhelp-mode 1))))
 
-;; 
+;;
 (use-package counsel)
 
 (use-package expand-region
@@ -309,17 +309,22 @@
 (global-set-key (kbd "M-<down>") 'move-region-down)
 
 ;; Crux
+(use-package crux
+  :init (crux-with-region-or-line comment-or-uncomment-region)
+  :bind (("C-c o" . crux-open-with)
+         ("C-c D" . crux-delete-file-and-buffer)
+         ("C-a" . crux-move-beginning-of-line)
+         ("s-r" . crux-rename-file-and-buffer)
+         ("s-d" . crux-duplicate-current-line-or-region)
+         ("s-D" . crux-duplicate-and-comment-current-line-or-region)
+         ("C-<backspace>" . crux-kill-line-backwards)
+         ("s-<backspace>" . crux-kill-whole-line)
+         ("S-<return>" . crux-smart-open-line-above)
+         ("C-<return>" . crux-smart-open-line)
+         ("s-/" . comment-or-uncomment-region)))
 
-(global-set-key [remap move-beginning-of-line] #'crux-move-beginning-of-line)
-(global-set-key (kbd "C-c o") #'crux-open-with)
-(global-set-key [(shift return)] #'crux-smart-open-line)
-(global-set-key (kbd "s-r") #'crux-recentf-find-file)
-(global-set-key (kbd "C-<backspace>") #'crux-kill-line-backwards)
-(global-set-key [remap kill-whole-line] #'crux-kill-whole-line)
-(global-set-key (kbd "C-c d") #'crux-duplicate-current-line-or-region)
-(global-set-key (kbd "C-c M-d") #'crux-duplicate-and-comment-current-line-or-region)
-(crux-with-region-or-line comment-or-uncomment-region)
-(global-set-key (kbd "s-/") 'comment-or-uncomment-region)
+(global-set-key (kbd "C-S-<backspace>") 'fixup-whitespace)
+
 ;; Doom theme
 (require 'doom-themes)
 
@@ -361,7 +366,7 @@
 
   ;; guru settings
   (go-guru-hl-identifier-mode)                    ; highlight identifiers
-  
+
   ;; Key bindings specific to go-mode
   (local-set-key (kbd "M-.") 'godef-jump)         ; Go to definition
   (local-set-key (kbd "M-*") 'pop-tag-mark)       ; Return from whence you came
@@ -373,7 +378,7 @@
   (electric-pair-mode)
   (electric-indent-mode)
   (flycheck-mode)
-  
+
   ;; Misc go stuff
   (auto-complete-mode 1))                         ; Enable auto-complete mode
 
@@ -389,7 +394,7 @@
 (require 'go-rename)
 
 ;; -------------------------------------- React ----------------------------------
-(defun jethro/setup-rjsx-mode ()  
+(defun jethro/setup-rjsx-mode ()
   (setq-local emmet-expand-jsx-className? t)
   (setq-local web-mode-enable-auto-quoting nil)
   (setq js2-strict-missing-semi-warning nil))
