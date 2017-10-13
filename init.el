@@ -54,9 +54,9 @@
   (setq projectile-completion-system 'ivy))
 
 ;; Emoji
-(add-hook 'after-init-hook #'global-emojify-mode)
 (use-package emojify
-  :bind (("C-c e" . emojify-insert-emoji)))
+  :bind (("C-c e" . emojify-insert-emoji))
+  :init (add-hook 'after-init-hook 'global-emojify-mode))
 
 ;; Set user details
 (setq user-full-name "Christabella Irwanto"
