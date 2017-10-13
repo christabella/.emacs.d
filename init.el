@@ -150,9 +150,9 @@
 ;; (load-theme 'tao-yang t))
 
 
-(use-package zenburn-theme
-  :init
-  (load-theme 'zenburn t))
+;; (use-package zenburn-theme
+;;   :init
+;;   (load-theme 'zenburn t))
 
 ;; Install packages
 ;; Window management
