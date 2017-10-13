@@ -42,10 +42,9 @@
 
 (use-package projectile
   :demand t
-  :init (projectile-global-mode 1)
-  :bind-keymap* ("C-x p" . projectile-command-map)
+  :init (add-hook 'after-init-hook 'projectile-global-mode)
   :config
-  (require 'projectile)
+  (setq projectile-keymap-prefix (kbd "C-x p"))
   (use-package counsel-projectile
     :bind (("s-p" . counsel-projectile)
            ("s-f" . counsel-projectile-find-file)
