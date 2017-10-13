@@ -154,6 +154,24 @@
 ;;   :init
 ;;   (load-theme 'zenburn t))
 
+;; Doom theme
+(use-package doom-themes
+  :init
+  (load-theme 'doom-one t)
+  :config
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+        doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  ;; Enable flashing mode-line on errors
+  (doom-themes-visual-bell-config)
+
+  ;; Enable custom neotree theme
+  (doom-themes-neotree-config)  ; all-the-icons fonts must be installed!
+
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config))
+
+
+
 ;; Install packages
 ;; Window management
 (use-package ace-window
@@ -323,32 +341,6 @@
          ("s-/" . comment-or-uncomment-region)))
 
 (global-set-key (kbd "C-S-<backspace>") 'fixup-whitespace)
-
-;; Doom theme
-(require 'doom-themes)
-
-;; Global settings (defaults)
-(setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-      doom-themes-enable-italic t) ; if nil, italics is universally disabled
-
-;; Load the theme (doom-one, doom-molokai, etc); keep in mind that each theme
-;; may have their own settings.
-;; doom-one: doom-themes' flagship theme, inspired by Atom's One Dark themes
-;; doom-vibrant: a more vibrant version of doom-one
-;; doom-molokai: based on Textmate's monokai
-;; doom-nova: adapted from Nova (thanks to bigardone)
-;; doom-one-light: light version of doom-one (thanks to ztlevi)
-;; doom-tomorrow-night:
-(load-theme 'doom-one t)
-
-;; Enable flashing mode-line on errors
-(doom-themes-visual-bell-config)
-
-;; Enable custom neotree theme
-(doom-themes-neotree-config)  ; all-the-icons fonts must be installed!
-
-;; Corrects (and improves) org-mode's native fontification.
-(doom-themes-org-config)
 
 ;; ---------------------------------------- Go ----------------------------------
 
