@@ -10,6 +10,12 @@
   (package-initialize)
   )
 
+(setq-default explicit-shell-file-name "/bin/bash")
+(setq-default shell-file-name "/bin/bash")
+
+;; Fullscreen
+(setq ns-use-native-fullscreen nil)
+
 ;; Make dired less verbose
 ;; (require 'dired-details)
 ;; (setq-default dired-details-hidden-string "-- ")
