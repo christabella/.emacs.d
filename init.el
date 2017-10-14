@@ -180,6 +180,11 @@
 ;; Disable aggressive-indent-mode in Python
 (add-hook 'python-mode-hook (lambda () (aggressive-indent-mode -1)))
 
+;; Pyflakes
+(require 'flymake-python-pyflakes)
+(add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
+(setq flymake-python-pyflakes-executable "flake8")
+
 ;; Go-to-char functionality
 (use-package avy
   :bind (("C-," . avy-goto-char)
@@ -385,8 +390,8 @@
   (electric-indent-mode)
   (flycheck-mode)
 
-  ;; Misc go stuff
-  (auto-complete-mode 1))                         ; Enable auto-complete mode
+  ;; ;; Misc go stuff
+  ;; (auto-complete-mode 1))                         ; Enable auto-complete mode
 
 ;; Connect go-mode-hook with the function we just defined
 (add-hook 'go-mode-hook 'my-go-mode-hook)
