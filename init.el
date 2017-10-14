@@ -305,12 +305,11 @@
     ("<down>" move-text-down "Down")
     ("q" nil "Quit" :color blue)))
 
-(global-set-key (kbd "M-<up>") 'move-region-up)
-(global-set-key (kbd "M-<down>") 'move-region-down)
+(global-set-key (kbd "M-<up>") 'move-text-up)
+(global-set-key (kbd "M-<down>") 'move-text-down)
 
 ;; Crux
-(use-package crux
-  :init (crux-with-region-or-line comment-or-uncomment-region)
+(use-package crux 
   :bind (("C-c o" . crux-open-with)
          ("C-c D" . crux-delete-file-and-buffer)
          ("C-a" . crux-move-beginning-of-line)
@@ -321,7 +320,8 @@
          ("s-<backspace>" . crux-kill-whole-line)
          ("S-<return>" . crux-smart-open-line-above)
          ("C-<return>" . crux-smart-open-line)
-         ("s-/" . comment-or-uncomment-region)))
+         ("s-/" . comment-or-uncomment-region))
+  :config (crux-with-region-or-line comment-or-uncomment-region))
 
 (global-set-key (kbd "C-S-<backspace>") 'fixup-whitespace)
 
