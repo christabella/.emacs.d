@@ -404,6 +404,12 @@
 (require 'go-guru)
 (require 'go-rename)
 
+;; Protobuf
+(use-package protobuf-mode :ensure t
+  :mode "\\.proto\\'"
+  :config
+  (setq-local c-basic-offset 4))
+
 ;; -------------------------------------- React ----------------------------------
 (defun jethro/setup-rjsx-mode ()
   (setq-local emmet-expand-jsx-className? t)
