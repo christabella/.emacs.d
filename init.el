@@ -353,6 +353,8 @@
 
 (global-set-key (kbd "C-S-<backspace>") 'fixup-whitespace)
 
+(global-set-key (kbd "C-c C-f") 'toggle-frame-fullscreen)
+
 ;; ---------------------------------------- Go ----------------------------------
 
 (require 'auto-complete-config)
