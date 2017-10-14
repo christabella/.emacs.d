@@ -4,8 +4,8 @@
 ;; Enable package archives
 (when (>= emacs-major-version 24)
   (require 'package)
-  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
-  (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+  (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
   (add-to-list 'load-path "~/.emacs.d/lisp/")
   (package-initialize)
   )
@@ -48,10 +48,9 @@
 
 (use-package projectile
   :demand t
-  :init (projectile-global-mode 1)
-  :bind-keymap* ("C-x p" . projectile-command-map)
+  :init (add-hook 'after-init-hook 'projectile-global-mode)
   :config
-  (require 'projectile)
+  (setq projectile-keymap-prefix (kbd "C-x p"))
   (use-package counsel-projectile
     :bind (("s-p" . counsel-projectile)
            ("s-f" . counsel-projectile-find-file)
@@ -60,9 +59,9 @@
   (setq projectile-completion-system 'ivy))
 
 ;; Emoji
-(add-hook 'after-init-hook #'global-emojify-mode)
 (use-package emojify
-  :bind (("C-c e" . emojify-insert-emoji)))
+  :bind (("C-c e" . emojify-insert-emoji))
+  :init (add-hook 'after-init-hook 'global-emojify-mode))
 
 ;; Set user details
 (setq user-full-name "Christabella Irwanto"
@@ -157,9 +156,27 @@
 ;; (load-theme 'tao-yang t))
 
 
-(use-package zenburn-theme
+;; (use-package zenburn-theme
+;;   :init
+;;   (load-theme 'zenburn t))
+
+;; Doom theme
+(use-package doom-themes
   :init
-  (load-theme 'zenburn t))
+  (load-theme 'doom-one t)
+  :config
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+        doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  ;; Enable flashing mode-line on errors
+  (doom-themes-visual-bell-config)
+
+  ;; Enable custom neotree theme
+  (doom-themes-neotree-config)  ; all-the-icons fonts must be installed!
+
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config))
+
+
 
 ;; Install packages
 ;; Window management
@@ -335,32 +352,6 @@
   :config (crux-with-region-or-line comment-or-uncomment-region))
 
 (global-set-key (kbd "C-S-<backspace>") 'fixup-whitespace)
-
-;; Doom theme
-(require 'doom-themes)
-
-;; Global settings (defaults)
-(setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-      doom-themes-enable-italic t) ; if nil, italics is universally disabled
-
-;; Load the theme (doom-one, doom-molokai, etc); keep in mind that each theme
-;; may have their own settings.
-;; doom-one: doom-themes' flagship theme, inspired by Atom's One Dark themes
-;; doom-vibrant: a more vibrant version of doom-one
-;; doom-molokai: based on Textmate's monokai
-;; doom-nova: adapted from Nova (thanks to bigardone)
-;; doom-one-light: light version of doom-one (thanks to ztlevi)
-;; doom-tomorrow-night:
-(load-theme 'doom-one t)
-
-;; Enable flashing mode-line on errors
-(doom-themes-visual-bell-config)
-
-;; Enable custom neotree theme
-(doom-themes-neotree-config)  ; all-the-icons fonts must be installed!
-
-;; Corrects (and improves) org-mode's native fontification.
-(doom-themes-org-config)
 
 ;; ---------------------------------------- Go ----------------------------------
 
