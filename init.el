@@ -245,7 +245,8 @@
 (use-package multiple-cursors
   :bind (("C->" . mc/mark-next-like-this)
          ("C-<" . mc/mark-previous-like-this)
-         ("C-c a" . mc/mark-all-like-this)))
+         ("C-c a" . mc/mark-all-like-this-dwim)
+         ("C-c A" . mc/mark-all-like-this)))
 
 (use-package nyan-mode
   :config
@@ -381,10 +382,10 @@
 
   (electric-pair-mode)
   (electric-indent-mode)
-  (flycheck-mode)
+  (flycheck-mode))
 
-  ;; ;; Misc go stuff
-  ;; (auto-complete-mode 1))                         ; Enable auto-complete mode
+;; ;; Misc go stuff
+;; (auto-complete-mode 1))                         ; Enable auto-complete mode
 
 ;; Connect go-mode-hook with the function we just defined
 (add-hook 'go-mode-hook 'my-go-mode-hook)
