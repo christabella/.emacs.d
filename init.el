@@ -356,6 +356,8 @@
 
 (global-set-key (kbd "C-c C-f") 'toggle-frame-fullscreen)
 
+(global-set-key (kbd "C-x j") 'org-journal-new-entry)
+
 ;; ---------------------------------------- Go ----------------------------------
 
 (require 'auto-complete-config)
