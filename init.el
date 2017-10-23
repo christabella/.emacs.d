@@ -16,6 +16,17 @@
 ;; Fullscreen
 (setq ns-use-native-fullscreen nil)
 
+;; Org
+(use-package org
+  :mode ("\\.org\\'" . org-mode)
+  :bind (("C-c C-g" . org-capture)
+         ("C-c C-a" . org-agenda)
+         ("M-n" . outline-next-visible-heading)
+         ("M-p" . outline-previous-visible-heading)
+         ("M-u" . outline-up-heading)
+         )
+  )
+
 ;; Make dired less verbose
 ;; (require 'dired-details)
 ;; (setq-default dired-details-hidden-string "-- ")
