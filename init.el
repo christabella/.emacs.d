@@ -199,7 +199,9 @@
   :diminish aggressive-indent-mode
   :config (add-hook 'prog-mode-hook 'aggressive-indent-mode))
 
-;; ANaconda
+;; ---------------------------------------- Python ----------------------------------
+
+;; Anaconda
 (use-package anaconda-mode
   :init
   (add-hook 'python-mode-hook 'anaconda-mode)
@@ -208,10 +210,22 @@
 ;; Disable aggressive-indent-mode in Python
 (add-hook 'python-mode-hook (lambda () (aggressive-indent-mode -1)))
 
+;; Define function to call when go-mode loads
+(defun my-python-mode-hook ()
+  (local-set-key (kbd "M-p") 'compile)            ; Invoke compiler
+  (local-set-key (kbd "M-P") 'recompile)          ; Redo most recent compile cmd
+  (local-set-key (kbd "M-]") 'next-error)         ; Go to next error (or msg)
+  (local-set-key (kbd "M-[") 'previous-error)     ; Go to previous error or msg
+
+  (flycheck-mode))
+
+;; Connect go-mode-hook with the function we just defined
+(add-hook 'python-mode-hook 'my-python-mode-hook)
+
 ;; Pyflakes
-(require 'flymake-python-pyflakes)
-(add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
-(setq flymake-python-pyflakes-executable "flake8")
+;; (require 'flymake-python-pyflakes)
+;; (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
+;; (setq flymake-python-pyflakes-executable "flake8")
 
 ;; Go-to-char functionality
 (use-package avy
