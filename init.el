@@ -412,9 +412,6 @@
   (electric-indent-mode)
   (flycheck-mode))
 
-;; ;; Misc go stuff
-;; (auto-complete-mode 1))                         ; Enable auto-complete mode
-
 ;; Connect go-mode-hook with the function we just defined
 (add-hook 'go-mode-hook 'my-go-mode-hook)
 
