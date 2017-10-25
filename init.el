@@ -346,7 +346,8 @@
   (beginning-of-line (or (and arg (1+ arg)) 2))
   (if (and arg (not (= 1 arg))) (message "%d lines copied" arg)))
 
-(global-set-key (kbd "C-c C-l") 'copy-line)
+;; Override major modes
+(bind-key* "M-l" 'copy-line)
 
 ;; Move text
 (use-package move-text
