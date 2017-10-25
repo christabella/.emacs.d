@@ -10,8 +10,8 @@
   (package-initialize)
   )
 
-(setq-default explicit-shell-file-name "/bin/bash")
-(setq-default shell-file-name "/bin/bash")
+(setq-default explicit-shell-file-name "/usr/local/bin/fish")
+(setq-default shell-file-name "/usr/local/bin/fish")
 
 ;; Fullscreen
 (setq ns-use-native-fullscreen nil)
