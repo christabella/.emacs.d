@@ -26,6 +26,9 @@
          ("M-u" . outline-up-heading)
          )
   )
+;; For inserting images/screenshots into org files
+(require 'org-download)
+(setq org-download-screenshot-method "screencapture -i %s")
 
 ;; Make dired less verbose
 ;; (require 'dired-details)
