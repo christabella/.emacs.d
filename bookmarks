@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("config.fish"
+(("sop.org"
+ (filename . "~/.org/sop.org")
+ (front-context-string . "Please give your")
+ (rear-context-string)
+ (position . 1))
+("config.fish"
  (filename . "~/.config/fish/config.fish")
  (front-context-string . "# For Postgres.a")
  (rear-context-string)

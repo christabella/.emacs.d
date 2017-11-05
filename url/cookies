@@ -5,8 +5,8 @@
  'nil)
 (setq url-cookie-secure-storage
  '((".github.com"
-  [url-cookie "logged_in" "no" "Sat, 19 Sep 2037 02:22:28 -0000" "/" ".github.com" t]
-  [url-cookie "HttpOnly" nil "Sat, 19 Sep 2037 02:22:28 -0000" "/" ".github.com" t]))
+  [url-cookie "HttpOnly" nil "Sat, 19 Sep 2037 02:22:28 -0000" "/" ".github.com" t]
+  [url-cookie "logged_in" "no" "Sat, 19 Sep 2037 02:22:28 -0000" "/" ".github.com" t]))
 )
 
 ;; Local Variables:
