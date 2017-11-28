@@ -213,7 +213,7 @@
 ;; Disable aggressive-indent-mode in Python
 (add-hook 'python-mode-hook (lambda () (aggressive-indent-mode -1)))
 
-;; Define function to call when go-mode loads
+;; Define function to call when python-mode loads
 (defun my-python-mode-hook ()
   (local-set-key (kbd "M-p") 'compile)            ; Invoke compiler
   (local-set-key (kbd "M-P") 'recompile)          ; Redo most recent compile cmd
@@ -389,9 +389,6 @@
 
 ;; ---------------------------------------- Go ----------------------------------
 
-(require 'auto-complete-config)
-(ac-config-default)
-
 ;; Define function to call when go-mode loads
 (defun my-go-mode-hook ()
   (add-hook 'before-save-hook 'gofmt-before-save) ; gofmt before every save
@@ -413,18 +410,20 @@
 
   (electric-pair-mode)
   (electric-indent-mode)
-  (flycheck-mode))
+  (flycheck-mode)
 
+  (set (make-local-variable 'company-backends) '(company-go))
+  (company-mode))
 ;; Connect go-mode-hook with the function we just defined
 (add-hook 'go-mode-hook 'my-go-mode-hook)
 
 ;; Ensure the go specific autocomplete is active in go-mode.
 (with-eval-after-load 'go-mode
-  (require 'go-autocomplete))
+  (require 'company-go) ; load company mode go backend
+  ;; If the go-guru.el and go-rename.el files are in the load path, this will load it.
+  (require 'go-guru)
+  (require 'go-rename))
 
-;; If the go-guru.el and go-rename.el files are in the load path, this will load it.
-(require 'go-guru)
-(require 'go-rename)
 
 ;; Protobuf
 (use-package protobuf-mode :ensure t
