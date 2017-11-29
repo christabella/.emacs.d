@@ -412,6 +412,11 @@
   (electric-indent-mode)
   (flycheck-mode)
 
+  ;; Show function signatures in company-go autocompletion dropdown
+  (setq company-go-show-annotation t)
+  ;; Align function signatures to the right
+  (setq company-tooltip-align-annotations t)
+
   (set (make-local-variable 'company-backends) '(company-go))
   (company-mode))
 ;; Connect go-mode-hook with the function we just defined
