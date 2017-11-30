@@ -164,6 +164,9 @@
 (setq-default js-switch-indent-offset js-indent-level)
 (setq-default indent-tabs-mode nil)
 
+;; Display column number in modeline
+(setq column-number-mode t)
+
 ;; Set theme
 ;; (use-package tao-theme
 ;; :init
