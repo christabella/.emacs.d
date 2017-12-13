@@ -279,6 +279,9 @@
          ("C-c a" . mc/mark-all-like-this-dwim)
          ("C-c A" . mc/mark-all-like-this)))
 
+;; Make <return> insert a newline instead of disabling multiple-cursors-mode
+(define-key mc/keymap (kbd "<return>") nil)
+
 (use-package nyan-mode
   :config
   (add-hook 'after-init-hook 'nyan-mode))
