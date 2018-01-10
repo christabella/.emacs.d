@@ -2,13 +2,15 @@
 ;;; Bella's init file
 
 ;; Enable package archives
-(when (>= emacs-major-version 24)
-  (require 'package)
-  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-  (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
-  (add-to-list 'load-path "~/.emacs.d/lisp/")
-  (package-initialize)
-  )
+(require 'package)
+(setq package-archives
+      '(("elpy" . "http://jorgenschaefer.github.io/packages/")
+        ("melpa" . "https://melpa.org/packages/")
+        ("gnu" . "http://elpa.gnu.org/packages/")
+        ("melpa-stable" . "https://stable.melpa.org/packages/")))
+(package-initialize)
+
+(add-to-list 'load-path "~/.emacs.d/lisp/")
 
 (setq-default explicit-shell-file-name "/usr/local/bin/fish")
 (setq-default shell-file-name "/usr/local/bin/fish")
