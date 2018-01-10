@@ -235,6 +235,16 @@
 ;; (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
 ;; (setq flymake-python-pyflakes-executable "flake8")
 
+;; ------------------------------ Java ------------------------------
+(require 'meghanada)
+(add-hook 'java-mode-hook
+          (lambda ()
+            ;; meghanada-mode on
+            (meghanada-mode t)
+            (setq c-basic-offset 2)
+            ;; use code format
+            (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)))
+
 ;; Go-to-char functionality
 (use-package avy
   :bind (("C-," . avy-goto-char)

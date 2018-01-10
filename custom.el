@@ -30,7 +30,7 @@
  '(org-fontify-whole-heading-line t)
  '(package-selected-packages
    (quote
-    (fish-mode flycheck-mode dumb-jump lua-mode yapfify py-isort golden-ratio dracula-theme company-go org-ref direnv json-mode dockerfile-mode org-download org-attach-screenshot flymake-python-pyflakes flycheck-pyflakes corral hydra move-text flymake-go protobuf-mode org-journal counsel-projectile auto-complete go-mode neotree emmet-mode tern rjsx-mode ranger dired-ranger doom-themes peep-dired emojify all-the-icons-dired unicode-fonts font-utils org-plus-contrib dired-details+ markdown-mode+ anaconda-mode crux isend-mode wgrep exec-path-from-shell flycheck projectile yasnippet which-key nyan-mode multiple-cursors magit expand-region counsel company-quickhelp company beacon aggressive-indent ace-window zenburn-theme use-package)))
+    (meghanada cl-lib fish-mode flycheck-mode dumb-jump lua-mode yapfify py-isort golden-ratio dracula-theme company-go org-ref direnv json-mode dockerfile-mode org-download org-attach-screenshot flymake-python-pyflakes flycheck-pyflakes corral hydra move-text flymake-go protobuf-mode org-journal counsel-projectile auto-complete go-mode neotree emmet-mode tern rjsx-mode ranger dired-ranger doom-themes peep-dired emojify all-the-icons-dired unicode-fonts font-utils org-plus-contrib dired-details+ markdown-mode+ anaconda-mode crux isend-mode wgrep exec-path-from-shell flycheck projectile yasnippet which-key nyan-mode multiple-cursors magit expand-region counsel company-quickhelp company beacon aggressive-indent ace-window zenburn-theme use-package)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(projectile-mode t nil (projectile))
  '(vc-annotate-background "#0d0f11")
