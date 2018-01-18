@@ -302,6 +302,7 @@
   :bind*
   (("C-s" . counsel-grep-or-swiper)
    ("C-c C-r" . ivy-resume)
+   ("C-j" . ivy-immediate-done)
    ("M-x" . counsel-M-x)
    ("C-x C-f" . counsel-find-file)
    ("C-c h f" . counsel-describe-function)
