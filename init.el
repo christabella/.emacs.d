@@ -107,6 +107,9 @@
 ;; M-x without a caret
 (setq ivy-initial-inputs-alist nil)
 
+;; Make the prompt selectable
+(setq ivy-use-selectable-prompt t)
+
 ;; Globally set Org tags
 (setq org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("question" . ?q)))
 
@@ -161,18 +164,22 @@
 
 ;; Set 2 spaces indentation
 
-(setq-default tab-width 2)
+;; (setq-default tab-width 2)
 (setq-default js-indent-level 2)
+(setq-default css-indent-offset 2)
 (setq-default js-switch-indent-offset js-indent-level)
 (setq-default indent-tabs-mode nil)
 
 ;; Display column number in modeline
 (setq column-number-mode t)
 
+;; Add /themes to custom theme load path
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes" )
+
 ;; Set theme
 ;; (use-package tao-theme
 ;; :init
-;; (load-theme 'tao-yang t))
+(load-theme 'dracula t)
 
 
 ;; (use-package zenburn-theme
