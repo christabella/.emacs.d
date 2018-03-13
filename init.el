@@ -6,8 +6,9 @@
 (setq package-archives
       '(("elpy" . "http://jorgenschaefer.github.io/packages/")
         ("melpa" . "https://melpa.org/packages/")
+        ("melpa-stable" . "https://stable.melpa.org/packages/")
         ("gnu" . "http://elpa.gnu.org/packages/")
-        ("melpa-stable" . "https://stable.melpa.org/packages/")))
+        ("org" . "http://orgmode.org/elpa/")))
 (package-initialize)
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
