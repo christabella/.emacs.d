@@ -114,8 +114,14 @@
 ;; Globally set Org tags
 (setq org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("question" . ?q)))
 
-;;; syntax highlighting for org
+;; Syntax highlighting for org
 (setq org-src-fontify-natively t)
+
+;; Enable upcase-region
+(put 'upcase-region 'disabled nil)
+
+;; Need `brew install imagemagick'
+;; (setq org-image-actual-width (/ (display-pixel-width) 3))
 
 ;; Turns - [X] into ☑ and - [ ] into ☐ for html export??
 
