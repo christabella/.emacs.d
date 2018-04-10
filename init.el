@@ -166,10 +166,7 @@
 ;; Set 2 spaces indentation
 
 ;; (setq-default tab-width 2)
-(setq-default js-indent-level 2)
 (setq-default css-indent-offset 2)
-(setq-default js-switch-indent-offset js-indent-level)
-(setq-default indent-tabs-mode nil)
 
 ;; Display column number in modeline
 (setq column-number-mode t)
@@ -470,6 +467,8 @@
   (setq js2-strict-missing-semi-warning nil))
 
 (use-package rjsx-mode
+  :ensure t
+  :pin melpa-stable
   :init
   (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
   (add-to-list 'auto-mode-alist '("\\.react.js\\'" . rjsx-mode))
@@ -482,6 +481,8 @@
   (add-hook 'rjsx-mode-hook 'jethro/setup-rjsx-mode)
   (add-hook 'rjsx-mode-hook 'tern-mode)
   (add-hook 'rjsx-mode-hook 'emmet-mode)
+  ;; Disable aggressive-indent-mode in rjsx
+  (add-hook 'rjsx-mode-hook (lambda () (aggressive-indent-mode -1)))
   :config
   (with-eval-after-load 'flycheck
     (dolist (checker '(javascript-eslint javascript-standard))
@@ -496,9 +497,30 @@
               :after
               #'jethro/line-align-closing-bracket))
 
+(use-package prettier-js
+  :ensure t
+  :pin melpa-stable
+  :config
+  (add-hook 'rjsx-mode-hook 'prettier-js-mode)
+  (add-hook 'js-mode-hook 'prettier-js-mode)
+  (add-hook 'js2-mode-hook 'prettier-js-mode)
+  (setq-default js-indent-level 2)
+  (setq-default js2-indent-level 2)
+  (setq-default jsx-indent-level 2)
+  (setq-default sgml-basic-offset 2)
+  (setq-default js2-basic-offset 2))
+
+(use-package add-node-modules-path
+  :ensure t
+  :pin melpa-stable
+  :config
+  (add-hook 'prettier-js-mode-hook 'add-node-modules-path))
+
+(add-hook 'js-mode-hook (lambda () (aggressive-indent-mode -1)))
 
 ;; End of packages
 (load custom-file)
 
 (provide 'init)
 ;;; init.el ends here
+
