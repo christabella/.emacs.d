@@ -4,3 +4,13 @@ elpa/*
 recentf
 .mc-lists.el
 /ac-comphist.dat
+anaconda-mode/*
+meghanada/*
+meghanada-server/*
+network-security.data
+eshell/
+tramp
+.DS_Store
+projectile-bookmarks.eld
+url/cookies
+bookmarks
