@@ -410,7 +410,9 @@
          ("s-<backspace>" . crux-kill-whole-line)
          ("S-<return>" . crux-smart-open-line-above)
          ("C-<return>" . crux-smart-open-line)
-         ("s-/" . comment-or-uncomment-region))
+         ("s-/" . comment-or-uncomment-region)
+	 ("M-*" . crux-switch-to-previous-buffer)
+	 )
   :config (crux-with-region-or-line comment-or-uncomment-region))
 
 (global-set-key (kbd "C-S-<backspace>") 'fixup-whitespace)
@@ -467,6 +469,16 @@
   :mode "\\.proto\\'"
   :config
   (setq-local c-basic-offset 4))
+
+;; ------------------------------------ Dumb jump --------------------------------
+(use-package dumb-jump
+  :bind (("M-g o" . dumb-jump-go-other-window)
+         ("M-," . dumb-jump-go)
+         ("M-g i" . dumb-jump-go-prompt)
+         ("M-g x" . dumb-jump-go-prefer-external)
+         ("M-g z" . dumb-jump-go-prefer-external-other-window))
+  :config (setq dumb-jump-selector 'ivy) ;; (setq dumb-jump-selector 'helm)
+  :ensure)
 
 ;; -------------------------------------- React ----------------------------------
 (defun jethro/setup-rjsx-mode ()
