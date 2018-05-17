@@ -499,23 +499,13 @@
   (add-to-list 'magic-mode-alist '("^/*Enable flow type*/" . rjsx-mode))
   (add-to-list 'magic-mode-alist '("^// @flow" . rjsx-mode))
   (add-hook 'rjsx-mode-hook 'jethro/setup-rjsx-mode)
-  (add-hook 'rjsx-mode-hook 'tern-mode)
   (add-hook 'rjsx-mode-hook 'emmet-mode)
   ;; Disable aggressive-indent-mode in rjsx
   (add-hook 'rjsx-mode-hook (lambda () (aggressive-indent-mode -1)))
   :config
   (with-eval-after-load 'flycheck
     (dolist (checker '(javascript-eslint javascript-standard))
-      (flycheck-add-mode checker 'rjsx-mode)))
-  (defun jethro/line-align-closing-bracket ()
-    "Workaround sgml-mode and align closing bracket with opening bracket"
-    (save-excursion
-      (beginning-of-line)
-      (when (looking-at-p "^ +\/?> *$")
-        (delete-char sgml-basic-offset))))
-  (advice-add #'js-jsx-indent-line
-              :after
-              #'jethro/line-align-closing-bracket))
+      (flycheck-add-mode checker 'rjsx-mode))))
 
 (use-package prettier-js
   :ensure t
