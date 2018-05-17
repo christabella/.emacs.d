@@ -501,6 +501,8 @@
   (add-to-list 'magic-mode-alist '("^// @flow" . rjsx-mode))
   (add-hook 'rjsx-mode-hook 'jethro/setup-rjsx-mode)
   (add-hook 'rjsx-mode-hook 'emmet-mode)
+  ;; Override js2-jump-to-definition in rjsx-mode-map
+  (add-hook 'rjsx-mode-hook (lambda () (bind-key* "M-." 'dumb-jump-go)))
   ;; Disable aggressive-indent-mode in rjsx
   (add-hook 'rjsx-mode-hook (lambda () (aggressive-indent-mode -1)))
   :config
