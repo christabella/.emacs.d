@@ -433,8 +433,9 @@
     ("<down>" move-text-down "Down")
     ("q" nil "Quit" :color blue)))
 
-(global-set-key (kbd "M-<up>") 'move-text-up)
-(global-set-key (kbd "M-<down>") 'move-text-down)
+(bind-keys*
+ ("M-<up>" . move-text-up)
+ ("M-<down>" . move-text-down))
 
 ;; Crux
 (use-package crux 
