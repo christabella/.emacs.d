@@ -520,10 +520,16 @@
   :ensure)
 
 ;; -------------------------------------- React ----------------------------------
-(defun jethro/setup-rjsx-mode ()
+(defun my-rjsx-mode-hook ()
   (setq-local emmet-expand-jsx-className? t)
   (setq-local web-mode-enable-auto-quoting nil)
-  (setq js2-strict-missing-semi-warning nil))
+  (setq js2-strict-missing-semi-warning nil)
+  (emmet-mode t)
+  ;; Disable aggressive-indent-mode in rjsx
+  (aggressive-indent-mode -1)
+  ;; Override js2-jump-to-definition in rjsx-mode-map
+  (bind-key* "M-." 'dumb-jump-go)
+  )
 
 (use-package rjsx-mode
   :ensure t
@@ -537,12 +543,7 @@
   (add-to-list 'magic-mode-alist '("import React" . rjsx-mode))
   (add-to-list 'magic-mode-alist '("^/*Enable flow type*/" . rjsx-mode))
   (add-to-list 'magic-mode-alist '("^// @flow" . rjsx-mode))
-  (add-hook 'rjsx-mode-hook 'jethro/setup-rjsx-mode)
-  (add-hook 'rjsx-mode-hook 'emmet-mode)
-  ;; Override js2-jump-to-definition in rjsx-mode-map
-  (add-hook 'rjsx-mode-hook (lambda () (bind-key* "M-." 'dumb-jump-go)))
-  ;; Disable aggressive-indent-mode in rjsx
-  (add-hook 'rjsx-mode-hook (lambda () (aggressive-indent-mode -1)))
+  (add-hook 'rjsx-mode-hook 'my-rjsx-mode-hook)
   :config
   (with-eval-after-load 'flycheck
     (dolist (checker '(javascript-eslint javascript-standard))
