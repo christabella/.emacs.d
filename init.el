@@ -450,6 +450,8 @@
     ("q" nil "Quit" :color blue)))
 
 (bind-keys*
+ ("C-M-p" . move-text-up)
+ ("C-M-n" . move-text-down)
  ("M-<up>" . move-text-up)
  ("M-<down>" . move-text-down))
 
