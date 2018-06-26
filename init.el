@@ -359,13 +359,14 @@
   (add-hook 'magit-mode-hook 'hl-line-mode))
 
 (use-package multiple-cursors
+  :ensure t
   :bind (("C->" . mc/mark-next-like-this)
          ("C-<" . mc/mark-previous-like-this)
          ("C-c a" . mc/mark-all-like-this-dwim)
-         ("C-c A" . mc/mark-all-like-this)))
-
-;; Make <return> insert a newline instead of disabling multiple-cursors-mode
-(define-key mc/keymap (kbd "<return>") nil)
+         ("C-c A" . mc/mark-all-like-this)
+	 ;; Make <return> insert a newline instead of disabling multiple-cursors-mode
+         :map mc/keymap
+      	 ("<return>" . 'newline-and-indent)))
 
 (use-package nyan-mode
   :config
