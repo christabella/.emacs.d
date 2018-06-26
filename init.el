@@ -45,9 +45,15 @@
          ("M-u" . outline-up-heading)
          )
   )
+
 ;; For inserting images/screenshots into org files
-(require 'org-download)
-(setq org-download-screenshot-method "screencapture -i %s")
+(use-package org-download :after org
+  :init
+  (setq org-download-screenshot-method "screencapture -i %s")
+  (setq-default org-download-image-dir "~/.org/img"))
+
+;; For exporting from .org to Github-flavored Markdown (`org-gfm-export-to-markdown`)
+(use-package ox-gfm :after org)
 
 ;; Make dired less verbose
 ;; (require 'dired-details)
