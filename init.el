@@ -19,6 +19,22 @@
 ;; Fullscreen
 (setq ns-use-native-fullscreen nil)
 
+;; So that org-mode will be n the pretty Edward Tufte (EtBembo) serif font.
+;; Variable pitch from https://xiangji.me/2015/07/13/a-few-of-my-org-mode-customizations/
+(defun set-buffer-variable-pitch ()
+  (interactive)
+  (variable-pitch-mode t)
+  (setq line-spacing 3)
+  (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-code nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-block nil :inherit 'fixed-pitch)
+  )
+
+(add-hook 'org-mode-hook 'set-buffer-variable-pitch)
+(add-hook 'eww-mode-hook 'set-buffer-variable-pitch)
+(add-hook 'markdown-mode-hook 'set-buffer-variable-pitch)
+(add-hook 'Info-mode-hook 'set-buffer-variable-pitch)
+
 ;; Org
 (use-package org
   :mode ("\\.org\\'" . org-mode)
