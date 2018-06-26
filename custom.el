@@ -23,4 +23,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(org-meta-line ((t (:foreground "#8995ba" :family monospace :height 100))))
- '(variable-pitch ((t (:family "EtBembo" :height 170)))))
+ '(variable-pitch ((t (:family "EtBembo" :height 160)))))
