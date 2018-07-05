@@ -24,7 +24,7 @@
 ;; Fullscreen
 (setq ns-use-native-fullscreen nil)
 
-;; So that org-mode will be n the pretty Edward Tufte (EtBembo) serif font.
+;; So that org-mode will be the pretty Edward Tufte (EtBembo) serif font.
 ;; Variable pitch from https://xiangji.me/2015/07/13/a-few-of-my-org-mode-customizations/
 (defun set-buffer-variable-pitch ()
   (interactive)
