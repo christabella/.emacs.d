@@ -16,6 +16,11 @@
 (setq-default explicit-shell-file-name "/usr/local/bin/fish")
 (setq-default shell-file-name "/usr/local/bin/fish")
 
+;; Pixel scroll mode
+(with-eval-after-load "postpone"
+  (when (version<= "26.1" emacs-version)
+    (pixel-scroll-mode 1)))
+
 ;; Fullscreen
 (setq ns-use-native-fullscreen nil)
 
