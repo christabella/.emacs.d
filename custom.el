@@ -13,9 +13,10 @@
  '(jdee-db-spec-breakpoint-face-colors (cons "#191C25" "#434C5E"))
  '(magit-dispatch-arguments nil)
  '(org-hide-emphasis-markers t)
+ '(org-indent-indentation-per-level 1)
  '(package-selected-packages
    (quote
-    (deft smooth-scrolling org-noter occur-x add-node-modules-path browse-kill-ring org ox-gfm browse-kill-ring+ zenburn-theme yapfify which-key wgrep use-package unicode-fonts tern smartparens rjsx-mode realgud ranger rainbow-delimiters pyvenv py-isort protobuf-mode prettier-js phoenix-dark-pink-theme peep-dired pdf-tools parsebib org-journal org-download org-attach-screenshot nyan-mode neotree multiple-cursors move-text meghanada markdown-mode+ magit lua-mode key-chord json-mode isend-mode hydra highlight-symbol highlight-indentation google-c-style golden-ratio flymake-python-pyflakes flymake-go flycheck-pyflakes fish-mode find-file-in-project expand-region exec-path-from-shell emojify emmet-mode dumb-jump dracula-theme doom-themes dockerfile-mode direnv dired-ranger dired-details+ crux counsel-projectile corral company-quickhelp company-go biblio beacon autodisass-java-bytecode auto-complete anaconda-mode all-the-icons-dired aggressive-indent ace-window)))
+    (auctex deft smooth-scrolling org-noter occur-x add-node-modules-path browse-kill-ring org ox-gfm browse-kill-ring+ zenburn-theme yapfify which-key wgrep use-package unicode-fonts tern smartparens rjsx-mode realgud ranger rainbow-delimiters pyvenv py-isort protobuf-mode prettier-js phoenix-dark-pink-theme peep-dired pdf-tools parsebib org-journal org-download org-attach-screenshot nyan-mode neotree multiple-cursors move-text meghanada markdown-mode+ magit lua-mode key-chord json-mode isend-mode hydra highlight-symbol highlight-indentation google-c-style golden-ratio flymake-python-pyflakes flymake-go flycheck-pyflakes fish-mode find-file-in-project expand-region exec-path-from-shell emojify emmet-mode dumb-jump dracula-theme doom-themes dockerfile-mode direnv dired-ranger dired-details+ crux counsel-projectile corral company-quickhelp company-go biblio beacon autodisass-java-bytecode auto-complete anaconda-mode all-the-icons-dired aggressive-indent ace-window)))
  '(which-function-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
