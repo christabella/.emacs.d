@@ -265,6 +265,7 @@
   (local-set-key (kbd "M-]") 'next-error)         ; Go to next error (or msg)
   (local-set-key (kbd "M-[") 'previous-error)     ; Go to previous error or msg
 
+  ;; Flycheck for Python!
   (flycheck-mode))
 
 ;; Connect go-mode-hook with the function we just defined
