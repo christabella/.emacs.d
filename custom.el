@@ -31,6 +31,8 @@
  ;; If there is more than one, they won't work right.
  '(org-block-begin-line ((t (:family "Iosevka"))))
  '(org-block-end-line ((t (:family "Iosevka"))))
+ '(org-hide ((t (:foreground "#282c34" :family "Iosevka"))))
+ '(org-indent ((t (:inherit org-hide))))
  '(org-level-1 ((t (:height 1.01))))
  '(org-meta-line ((t (:family "Iosevka"))))
  '(variable-pitch ((t (:family "EtBembo" :height 160)))))

@@ -24,24 +24,23 @@
 ;; Fullscreen
 (setq ns-use-native-fullscreen nil)
 
+;; Set fonts
+(set-face-attribute 'default nil :family "Iosevka" :height 130)
+(set-face-attribute 'fixed-pitch nil :family "Iosevka")
 ;; So that org-mode will be the pretty Edward Tufte (EtBembo) serif font.
+(set-face-attribute 'variable-pitch nil :family "ETBembo")
+
 ;; Variable pitch from https://xiangji.me/2015/07/13/a-few-of-my-org-mode-customizations/
 (defun set-buffer-variable-pitch ()
   (interactive)
   (variable-pitch-mode t)
-  (setq line-spacing 3)
+  ;; (setq line-spacing 3)
   (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
   (set-face-attribute 'org-code nil :inherit 'fixed-pitch)
   (set-face-attribute 'org-block nil :inherit 'fixed-pitch)
   )
 
-(add-hook 'org-mode-hook 'set-buffer-variable-pitch)
-(add-hook 'eww-mode-hook 'set-buffer-variable-pitch)
-(add-hook 'markdown-mode-hook 'set-buffer-variable-pitch)
-(add-hook 'Info-mode-hook 'set-buffer-variable-pitch)
-
-;; Customize org-mode indentation to fix bug from variable-pitch-mode
-;; https://emacs.stackexchange.com/questions/7429/how-to-customize-org-mode-indentation
+(add-hook 'text-mode-hook 'set-buffer-variable-pitch)
 
 ;; Org
 (use-package org
