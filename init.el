@@ -40,16 +40,44 @@
 (add-hook 'markdown-mode-hook 'set-buffer-variable-pitch)
 (add-hook 'Info-mode-hook 'set-buffer-variable-pitch)
 
+;; Customize org-mode indentation to fix bug from variable-pitch-mode
+;; https://emacs.stackexchange.com/questions/7429/how-to-customize-org-mode-indentation
+
 ;; Org
 (use-package org
   :mode ("\\.org\\'" . org-mode)
-  :bind (("C-c C-g" . org-capture)
-         ("C-c C-a" . org-agenda)
-         ("M-n" . outline-next-visible-heading)
-         ("M-p" . outline-previous-visible-heading)
-         ("M-u" . outline-up-heading)
-         )
-  )
+  :init (add-hook 'org-mode-hook
+		  '(lambda nil
+		     (setq-local truncate-lines nil)
+		     (org-indent-mode)
+		     (iimage-mode)
+		     ;; Set image width to around half of the screen width
+		     ;; We can also hardcode it in pixels: (setq org-image-actual-width '(100))
+		     (setq org-image-actual-width (/ (display-pixel-width) 2.5))
+		     (org-display-inline-images)
+		     ;; Maybe I'll try the below when the highlight bug is fixed
+		     ;; (highlighting is invisible)
+		     ;; (load-theme-buffer-local
+		     ;;  'doom-solarized-light
+		     ;;  (current-buffer))
+		     ))
+  (eval-after-load "org"
+    '(require 'ox-gfm nil t))
+  (setq org-support-shift-select t)
+  :bind (("C-c C-c" . org-capture)
+	 ("C-c C-a" . org-agenda)
+	 ("M-n" . outline-next-visible-heading)
+	 ("M-p" . outline-previous-visible-heading)
+	 ("M-u" . outline-up-heading)))
+
+(setq org-directory "~/.org")
+(setq org-capture-templates
+      '(("t" "Todo" entry (file+headline (lambda () (concat org-directory "/todo/todo.org")) "Tasks")
+	 "* TODO %?\n %i\n %a")
+	("s" "Shopping" entry (file+headline (lambda () (concat org-directory "/todo/shopping.org")) "List")
+	 "* TODO %?\n %i")
+	("l" "Learnings" entry (file+headline (lambda () (concat org-directory "/learnings/TIL.org")) "Learnings")
+	 "* %?\n %i")))
 
 ;; For inserting images/screenshots into org files
 (use-package org-download :after org
