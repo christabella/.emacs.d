@@ -28,14 +28,13 @@
 (set-face-attribute 'default nil :family "Iosevka" :height 130)
 (set-face-attribute 'fixed-pitch nil :family "Iosevka")
 ;; So that org-mode will be the pretty Edward Tufte (EtBembo) serif font.
-(set-face-attribute 'variable-pitch nil :family "ETBembo")
+(set-face-attribute 'variable-pitch nil :family "ETBembo" :height 170)
 
 ;; Variable pitch from https://xiangji.me/2015/07/13/a-few-of-my-org-mode-customizations/
 (defun set-buffer-variable-pitch ()
   (interactive)
   (variable-pitch-mode t)
   ;; (setq line-spacing 3)
-  (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
   (set-face-attribute 'org-code nil :inherit 'fixed-pitch)
   (set-face-attribute 'org-block nil :inherit 'fixed-pitch)
   )
@@ -54,6 +53,11 @@
 		     ;; We can also hardcode it in pixels: (setq org-image-actual-width '(100))
 		     (setq org-image-actual-width (/ (display-pixel-width) 2.5))
 		     (org-display-inline-images)
+		     (org-bullets-mode 1)     ;; For UTF-8 bullets
+		     (olivetti-mode 1)        ;; Centers text in the buffer
+		     (flyspell-mode 1)        ;; Catch Spelling mistakes
+		     (typo-mode 1)            ;; Good for symbols like em-dash
+		     (blink-cursor-mode 0)    ;; Reduce visual noise
 		     ;; Maybe I'll try the below when the highlight bug is fixed
 		     ;; (highlighting is invisible)
 		     ;; (load-theme-buffer-local
