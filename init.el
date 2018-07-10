@@ -65,6 +65,8 @@
   (setq org-support-shift-select t)
   :bind (("C-c C-c" . org-capture)
 	 ("C-c C-a" . org-agenda)
+	 ("C-<up>" . org-move-subtree-up)
+	 ("C-<down>" . org-move-subtree-downb)
 	 ("M-n" . outline-next-visible-heading)
 	 ("M-p" . outline-previous-visible-heading)
 	 ("M-u" . outline-up-heading)))
