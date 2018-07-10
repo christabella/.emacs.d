@@ -35,5 +35,4 @@
  '(org-hide ((t (:foreground "#282c34" :family "Iosevka"))))
  '(org-indent ((t (:inherit org-hide))))
  '(org-level-1 ((t (:height 1.01))))
- '(org-meta-line ((t (:family "Iosevka"))))
- '(variable-pitch ((t (:family "EtBembo" :height 160)))))
+ '(org-meta-line ((t (:family "Iosevka")))))
