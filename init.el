@@ -48,16 +48,15 @@
 		  '(lambda nil
 		     (setq-local truncate-lines nil)
 		     (org-indent-mode)
-		     (iimage-mode)
-		     ;; Set image width to around half of the screen width
-		     ;; We can also hardcode it in pixels: (setq org-image-actual-width '(100))
-		     (setq org-image-actual-width (/ (display-pixel-width) 2.5))
-		     (org-display-inline-images)
-		     (org-bullets-mode 1)     ;; For UTF-8 bullets
-		     (olivetti-mode 1)        ;; Centers text in the buffer
-		     (flyspell-mode 1)        ;; Catch Spelling mistakes
-		     (typo-mode 1)            ;; Good for symbols like em-dash
-		     (blink-cursor-mode 0)    ;; Reduce visual noise
+		     ;; Hardcode image width in in pixels
+		     ;; We can also to half of the screen width: (setq org-image-actual-width (/ (display-pixel-width) 2))
+		     (setq org-image-actual-width '(600))
+		     (org-display-inline-images) ;; Display inline images
+		     (org-bullets-mode 1)        ;; For UTF-8 bullets
+		     (olivetti-mode 1)           ;; Centers text in the buffer
+		     ;; (flyspell-mode 1)           ;; Catch Spelling mistakes
+		     (typo-mode 1)               ;; Good for symbols like em-dash
+		     (blink-cursor-mode 0)       ;; Reduce visual noise
 		     ;; Maybe I'll try the below when the highlight bug is fixed
 		     ;; (highlighting is invisible)
 		     ;; (load-theme-buffer-local
@@ -67,13 +66,15 @@
   (eval-after-load "org"
     '(require 'ox-gfm nil t))
   (setq org-support-shift-select t)
-  :bind (("C-c C-c" . org-capture)
-	 ("C-c C-a" . org-agenda)
+  :bind (("C-c C-g" . org-capture)
+         ("C-c C-a" . org-agenda)
 	 ("C-<up>" . org-move-subtree-up)
-	 ("C-<down>" . org-move-subtree-downb)
-	 ("M-n" . outline-next-visible-heading)
-	 ("M-p" . outline-previous-visible-heading)
-	 ("M-u" . outline-up-heading)))
+	 ("C-<down>" . org-move-subtree-down)
+         ("M-n" . outline-next-visible-heading)
+         ("M-p" . outline-previous-visible-heading)
+         ("M-u" . outline-up-heading)
+         )
+  )
 
 (setq org-directory "~/.org")
 (setq org-capture-templates
