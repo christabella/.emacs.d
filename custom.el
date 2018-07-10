@@ -13,6 +13,7 @@
  '(jdee-db-spec-breakpoint-face-colors (cons "#191C25" "#434C5E") t)
  '(line-spacing 0.2)
  '(magit-dispatch-arguments nil)
+ '(olivetti-body-width 100)
  '(org-fontify-done-headline t)
  '(org-format-latex-options
    (quote
@@ -35,4 +36,6 @@
  '(org-hide ((t (:foreground "#282c34" :family "Iosevka"))))
  '(org-indent ((t (:inherit org-hide))))
  '(org-level-1 ((t (:height 1.01))))
- '(org-meta-line ((t (:family "Iosevka")))))
+ '(org-meta-line ((t (:family "Iosevka"))))
+ '(org-property-value ((t (:foreground "LightGoldenrod4"))) t)
+ '(org-table ((t (:family "Iosevka")))))
