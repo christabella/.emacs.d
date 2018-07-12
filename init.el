@@ -48,6 +48,7 @@
 		  '(lambda nil
 		     (setq-local truncate-lines nil)
 		     (org-indent-mode)
+		     (setq org-support-shift-select t)
 		     ;; Hardcode image width in in pixels
 		     ;; We can also to half of the screen width: (setq org-image-actual-width (/ (display-pixel-width) 2))
 		     (setq org-image-actual-width '(600))
@@ -63,9 +64,6 @@
 		     ;;  'doom-solarized-light
 		     ;;  (current-buffer))
 		     ))
-  (eval-after-load "org"
-    '(require 'ox-gfm nil t))
-  (setq org-support-shift-select t)
   :bind (("C-c C-g" . org-capture)
          ("C-c C-a" . org-agenda)
 	 ("C-<up>" . org-move-subtree-up)
@@ -91,6 +89,8 @@
 
 ;; For exporting from .org to Github-flavored Markdown (`org-gfm-export-to-markdown`)
 (use-package ox-gfm :after org)
+(use-package ox-hugo
+  :after ox)
 
 ;; Make dired less verbose
 ;; (require 'dired-details)
