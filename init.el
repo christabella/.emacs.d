@@ -39,7 +39,10 @@
   (set-face-attribute 'org-block nil :inherit 'fixed-pitch)
   )
 
-(add-hook 'text-mode-hook 'set-buffer-variable-pitch)
+(add-hook 'org-mode-hook 'set-buffer-variable-pitch)
+(add-hook 'markdown-mode-hook 'set-buffer-variable-pitch)
+(add-hook 'eww-mode-hook 'set-buffer-variable-pitch)
+(add-hook 'Info-mode-hook 'set-buffer-variable-pitch)
 
 ;; Org
 (use-package org
