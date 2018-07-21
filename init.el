@@ -61,6 +61,11 @@
 		     ;; (flyspell-mode 1)           ;; Catch Spelling mistakes
 		     (typo-mode 1)               ;; Good for symbols like em-dash
 		     (blink-cursor-mode 0)       ;; Reduce visual noise
+		     (add-to-list 'org-babel-load-languages '("python" . t))
+		     (org-babel-do-load-languages
+		      'org-babel-load-languages
+		      '((python . t)
+			(js . t)))
 		     ;; Maybe I'll try the below when the highlight bug is fixed
 		     ;; (highlighting is invisible)
 		     ;; (load-theme-buffer-local
