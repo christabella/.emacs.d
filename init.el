@@ -189,20 +189,6 @@
 ;; Enable upcase-region
 (put 'upcase-region 'disabled nil)
 
-;; Need `brew install imagemagick'
-;; (setq org-image-actual-width (/ (display-pixel-width) 3))
-
-;; Turns - [X] into ☑ and - [ ] into ☐ for html export??
-
-(defun sacha/org-html-checkbox (checkbox)
-  "Format CHECKBOX into HTML."
-  (case checkbox (on "<span class=\"check\">&#x2611;</span>") ; checkbox (checked)
-        (off "<span class=\"checkbox\">&#x2610;</span>")
-        (trans "<code>[-]</code>")
-        (t "")))
-(defadvice org-html-checkbox (around sacha activate)
-  (setq ad-return-value (sacha/org-html-checkbox (ad-get-arg 0))))
-
 ;; Install use-package
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
