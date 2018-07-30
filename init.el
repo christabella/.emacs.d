@@ -95,6 +95,9 @@
   (setq org-download-screenshot-method "screencapture -i %s")
   (setq-default org-download-image-dir "~/.org/img"))
 
+(global-set-key (kbd "s-y") 'org-download-yank)
+(global-set-key (kbd "s-Y") 'org-download-screenshot)
+
 ;; For exporting from .org to Github-flavored Markdown (`org-gfm-export-to-markdown`)
 (use-package ox-gfm :after org)
 (use-package ox-hugo
