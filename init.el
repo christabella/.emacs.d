@@ -127,12 +127,12 @@
 
 ;; Preview files in dired
 (use-package peep-dired
-  :defer t ; don't access `dired-mode-map' until `peep-dired' is loaded
+  :defer t ;; don't access `dired-mode-map' until `peep-dired' is loaded
   :init
   (setq peep-dired-cleanup-on-disable t)
   (setq peep-dired-enable-on-directories t)
   :bind (:map dired-mode-map
-              ("P" . peep-dired)))
+	      ("P" . peep-dired)))
 
 (use-package projectile
   :demand t
