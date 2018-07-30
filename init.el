@@ -91,12 +91,11 @@
 
 ;; For inserting images/screenshots into org files
 (use-package org-download :after org
-  :init
-  (setq org-download-screenshot-method "screencapture -i %s")
-  (setq-default org-download-image-dir "~/.org/img"))
-
-(global-set-key (kbd "s-y") 'org-download-yank)
-(global-set-key (kbd "s-Y") 'org-download-screenshot)
+  :custom
+  (org-download-screenshot-method "screencapture -i %s")
+  (org-download-image-dir "~/.org/img")
+  :bind
+  (:map org-mode-map (("s-y" . org-download-yank) ("s-Y" . org-download-screenshot))))
 
 ;; For exporting from .org to Github-flavored Markdown (`org-gfm-export-to-markdown`)
 (use-package ox-gfm :after org)
