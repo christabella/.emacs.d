@@ -95,7 +95,10 @@
   (org-download-screenshot-method "screencapture -i %s")
   (org-download-image-dir "~/.org/img")
   :bind
-  (:map org-mode-map (("s-y" . org-download-yank) ("s-Y" . org-download-screenshot))))
+  (:map org-mode-map
+	(("s-y" . org-download-yank)
+	 ("s-Y" . org-download-screenshot)
+	 ("C-c l" . org-store-link))))
 
 ;; For exporting from .org to Github-flavored Markdown (`org-gfm-export-to-markdown`)
 (use-package ox-gfm :after org)
