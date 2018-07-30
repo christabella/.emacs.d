@@ -418,9 +418,8 @@
    ("C-c i u" . counsel-unicode-char)
    ("M-i" . counsel-imenu)
    ("C-c g" . counsel-git)
-   ("C-c j" . counsel-rg)
-   ("C-c k" . counsel-ag)
-   ("C-c l" . counsel-locate))
+   ("C-c j" . counsel-rg) ;; Faster than counsel-ag
+   ("C-c k" . counsel-ag))
   :config
   (setq counsel-grep-swiper-limit 20000)
   (progn
