@@ -1,0 +1,55 @@
+;;;; Emacs Bookmark Format Version 1 ;;;; -*- coding: no-conversion -*- 
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("aalto.org"
+ (filename . "~/.org/aalto/aalto.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("ml.org"
+ (filename . "~/.org/ml.org")
+ (front-context-string . "* Suggested List")
+ (rear-context-string)
+ (position . 1))
+("comp_prog.org"
+ (filename . "~/.org/comp_prog.org")
+ (front-context-string)
+ (rear-context-string . "[growingPlant]]\n")
+ (position . 333))
+("org-capture-last-stored"
+ (filename . "~/.org/todo/todo.org")
+ (front-context-string . "** TODO informat")
+ (rear-context-string . "tion on GPU's]]\n")
+ (position . 989))
+("gen_dev.sh"
+ (filename . "/tmp/gen_dev.sh")
+ (front-context-string)
+ (rear-context-string . "     -days 3650\n")
+ (position . 977))
+("papers.org"
+ (filename . "~/.org/papers.org")
+ (front-context-string . "* [[https://arxi")
+ (rear-context-string)
+ (position . 1))
+("sop.org"
+ (filename . "~/.org/sop.org")
+ (front-context-string . "Please give your")
+ (rear-context-string)
+ (position . 1))
+("config.fish"
+ (filename . "~/.config/fish/config.fish")
+ (front-context-string . "# For Postgres.a")
+ (rear-context-string)
+ (position . 1))
+("emacs.org"
+ (filename . "~/.org/emacs.org")
+ (front-context-string . "C-M-a runs the c")
+ (rear-context-string)
+ (position . 3))
+("carousell.org"
+ (filename . "~/.org/carousell.org")
+ (front-context-string . "\n*** managers ar")
+ (rear-context-string . "o collection_id\n")
+ (position . 6083))
+)

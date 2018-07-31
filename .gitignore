@@ -1,4 +1,3 @@
-*~
 elpa/*
 /games/*
 recentf
@@ -13,4 +12,4 @@ tramp
 .DS_Store
 projectile-bookmarks.eld
 url/cookies
-bookmarks
+/auto-save-list
