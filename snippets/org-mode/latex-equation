@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: latex-equation
-# key: \b
+# key: \e
 # --
 
 \begin{equation}
