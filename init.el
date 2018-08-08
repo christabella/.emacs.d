@@ -380,7 +380,14 @@
                 company-begin-commands '(self-insert-command)
                 company-transformers '(company-sort-by-occurrence))
           (use-package company-quickhelp
-            :config (company-quickhelp-mode 1))))
+            :config (company-quickhelp-mode 1)))
+  :bind
+  (:map company-active-map
+        ("M-n" . nil)
+        ("M-p" . nil)
+        ("C-n" . company-select-next)
+        ("C-p" . company-select-previous)
+        ))
 
 ;;
 (use-package counsel)
