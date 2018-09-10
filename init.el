@@ -83,7 +83,7 @@
 (setq org-directory "~/.org")
 (setq org-capture-templates
       '(("t" "Todo" entry (file+headline (lambda () (concat org-directory "/todo/todo.org")) "Tasks")
-	 "* TODO %?\n %i\n %a")
+	 "* TODO %?\n %i")
 	("s" "Shopping" entry (file+headline (lambda () (concat org-directory "/todo/shopping.org")) "List")
 	 "* TODO %?\n %i")
 	("l" "Learnings" entry (file+headline (lambda () (concat org-directory "/learnings/TIL.org")) "Learnings")
