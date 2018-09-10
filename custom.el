@@ -17,6 +17,8 @@
  '(magit-dispatch-arguments nil)
  '(nyan-mode t)
  '(olivetti-body-width 100)
+ '(org-download-image-dir "~/.org/img" t)
+ '(org-download-screenshot-method "screencapture -i %s" t)
  '(org-fontify-done-headline t)
  '(org-format-latex-options
    (quote
