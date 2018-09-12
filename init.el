@@ -100,10 +100,32 @@
 	 ("s-Y" . org-download-screenshot)
 	 ("C-c l" . org-store-link))))
 
+(use-package org-noter
+  :after org
+  :config
+  (setq org-noter-auto-save-last-location t)
+  (lambda() org-noter-set-doc-split-fraction 0.6)
+  )
+
 ;; For exporting from .org to Github-flavored Markdown (`org-gfm-export-to-markdown`)
 (use-package ox-gfm :after org)
 (use-package ox-hugo
   :after ox)
+
+;;https://emacs.stackexchange.com/a/22591
+(use-package pdf-tools
+  :ensure t
+  :pin melpa-stable
+  :init (add-hook 'pdf-view-mode-hook 'auto-revert-mode)
+  :config
+  (setq TeX-PDF-mode t)
+  (custom-set-variables
+   '(pdf-tools-handle-upgrades nil)) ; Use brew upgrade pdf-tools instead.
+  (setq pdf-info-epdfinfo-program "/usr/local/bin/epdfinfo")
+  :bind
+  (:map pdf-view-mode-map
+	(("C-s" . isearch-forward))))
+(pdf-tools-install)
 
 ;; Make dired less verbose
 ;; (require 'dired-details)
