@@ -247,12 +247,7 @@
 ;; Show matching parentheses
 (show-paren-mode +1)
 
-;; Default font
-;; (add-to-list 'default-frame-alist
-;;              '(font . "Fira Code-12"))
-
 ;; Set 2 spaces indentation
-
 ;; (setq-default tab-width 2)
 (setq-default css-indent-offset 2)
 
