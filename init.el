@@ -263,36 +263,35 @@
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes" )
 
 ;; Set theme
-;; (use-package tao-theme
-;; :init
-(load-theme 'dracula t)
-
-
-;; (use-package zenburn-theme
-;;   :init
-;;   (load-theme 'zenburn t))
+;; (load-theme 'doom-one t)
+;; (load-theme 'doom-solarized-light t)
 
 ;; Doom theme
-(use-package doom-themes
-  :init
-  (load-theme 'doom-one t)
-  :config
-  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-        doom-themes-enable-italic t) ; if nil, italics is universally disabled
-  ;; Enable flashing mode-line on errors
-  (doom-themes-visual-bell-config)
+;; (use-package doom-themes
+;;   :init
+;;   (load-theme 'doom-one t)
+;;   :config
+;;   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+;;         doom-themes-enable-italic t) ; if nil, italics is universally disabled
+;;   ;; Enable flashing mode-line on errors
+;;   (doom-themes-visual-bell-config)
 
-  ;; Enable custom neotree theme
-  (doom-themes-neotree-config)  ; all-the-icons fonts must be installed!
+;;   ;; Enable custom neotree theme
+;;   (doom-themes-neotree-config)  ; all-the-icons fonts must be installed!
 
-  ;; Corrects (and improves) org-mode's native fontification.
-  (doom-themes-org-config))
+;;   ;; Corrects (and improves) org-mode's native fontification.
+;;   (doom-themes-org-config))
 
-
+;; Super pretty but doesn't have line numbers, mc support etc
+;; (use-package doom-modeline
+;;   :ensure t
+;;   :defer t
+;;   :hook (after-init . doom-modeline-init))
 
 ;; Install packages
 ;; Window management
 (use-package ace-window
+  ;; :init (add-to-list 'golden-ratio-extra-commands 'ace-window)
   :bind (("M-q" . ace-window)))
 
 ;; Automatic indentation
