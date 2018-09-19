@@ -119,6 +119,8 @@
   :init (add-hook 'pdf-view-mode-hook 'auto-revert-mode)
   :config
   (setq TeX-PDF-mode t)
+  ;; More fine-grained zooming with steps of 10%
+  (setq pdf-view-resize-factor 1.1)
   (custom-set-variables
    '(pdf-tools-handle-upgrades nil)) ; Use brew upgrade pdf-tools instead.
   (setq pdf-info-epdfinfo-program "/usr/local/bin/epdfinfo")
