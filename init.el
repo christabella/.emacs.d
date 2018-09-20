@@ -13,6 +13,9 @@
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
+;; Save on frame focus loss
+(add-hook 'focus-out-hook 'save-buffer)
+
 (setq-default explicit-shell-file-name "/usr/local/bin/fish")
 (setq-default shell-file-name "/usr/local/bin/fish")
 
