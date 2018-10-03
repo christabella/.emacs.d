@@ -12,4 +12,8 @@ In particular, we need ImageMagick so that `org-image-actual-width` will work as
 ```
 brew install ispell --with-lang-en
 ```
-
+## For `pdf-tools`'
+```
+brew tap dunn/emacs
+brew install --HEAD pdf-tools
+```
