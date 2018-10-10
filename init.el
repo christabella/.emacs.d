@@ -317,16 +317,11 @@
   (local-set-key (kbd "M-]") 'next-error)         ; Go to next error (or msg)
   (local-set-key (kbd "M-[") 'previous-error)     ; Go to previous error or msg
 
-  ;; Flycheck for Python!
+  ;; Flycheck for Python linting!
   (flycheck-mode))
 
 ;; Connect go-mode-hook with the function we just defined
 (add-hook 'python-mode-hook 'my-python-mode-hook)
-
-;; Pyflakes
-;; (require 'flymake-python-pyflakes)
-;; (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
-;; (setq flymake-python-pyflakes-executable "flake8")
 
 ;; ------------------------------ Java ------------------------------
 (use-package autodisass-java-bytecode
