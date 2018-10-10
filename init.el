@@ -475,7 +475,11 @@
 (use-package yasnippet
   :defer 5
   :init (add-hook 'after-init-hook 'yas-global-mode)
-  :config (setq yas-snippet-dirs '("~/.emacs.d/snippets/")))
+  :config
+  (setq yas-snippet-dirs '("~/.emacs.d/snippets/"))
+  ;; Disable aggressive-indent-mode in yasnippet-mode
+  (aggressive-indent-mode -1)
+  )
 
 ;; ------------------------------ Little Helpers ------------------------------
 
