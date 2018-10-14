@@ -97,6 +97,7 @@
   :custom
   (org-download-screenshot-method "screencapture -i %s")
   (org-download-image-dir "~/.org/img")
+  (org-download-heading-lvl nil)
   :bind
   (:map org-mode-map
 	(("s-y" . org-download-yank)
