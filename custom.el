@@ -17,18 +17,19 @@
  '(magit-dispatch-arguments nil)
  '(nyan-mode t)
  '(olivetti-body-width 100)
- '(org-download-image-dir "~/.org/img" t)
- '(org-download-screenshot-method "screencapture -i %s" t)
+ '(org-download-image-dir "~/.org/img")
+ '(org-download-screenshot-method "screencapture -i %s")
  '(org-fontify-done-headline t)
  '(org-format-latex-options
    (quote
-    (:foreground "Black" :background "Transparent" :scale 1.6 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
+    (:foreground "White" :background "Transparent" :scale 1.6 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
 		 ("begin" "$1" "$" "$$" "\\(" "\\["))))
  '(org-hide-emphasis-markers t)
  '(org-indent-indentation-per-level 1)
  '(package-selected-packages
    (quote
-    (pdf-tools doom-modeline ox-hugo typo org-bullets olivetti material-theme poet-theme load-theme-buffer-local auctex deft smooth-scrolling org-noter occur-x add-node-modules-path browse-kill-ring org ox-gfm browse-kill-ring+ zenburn-theme yapfify which-key wgrep use-package unicode-fonts tern smartparens rjsx-mode realgud ranger rainbow-delimiters pyvenv py-isort protobuf-mode prettier-js phoenix-dark-pink-theme peep-dired parsebib org-journal org-download org-attach-screenshot nyan-mode neotree multiple-cursors move-text meghanada markdown-mode+ magit lua-mode key-chord json-mode isend-mode hydra highlight-symbol highlight-indentation google-c-style golden-ratio flymake-python-pyflakes flymake-go flycheck-pyflakes fish-mode find-file-in-project expand-region exec-path-from-shell emojify emmet-mode dumb-jump dracula-theme doom-themes dockerfile-mode direnv dired-ranger dired-details+ crux counsel-projectile corral company-quickhelp company-go biblio beacon autodisass-java-bytecode auto-complete anaconda-mode all-the-icons-dired aggressive-indent ace-window)))
+    (ox-reveal org-tree-slide pdf-tools doom-modeline ox-hugo typo org-bullets olivetti material-theme poet-theme load-theme-buffer-local auctex deft smooth-scrolling org-noter occur-x add-node-modules-path browse-kill-ring org ox-gfm browse-kill-ring+ zenburn-theme yapfify which-key wgrep use-package unicode-fonts tern smartparens rjsx-mode realgud ranger rainbow-delimiters pyvenv py-isort protobuf-mode prettier-js phoenix-dark-pink-theme peep-dired parsebib org-journal org-download org-attach-screenshot nyan-mode neotree multiple-cursors move-text meghanada markdown-mode+ magit lua-mode key-chord json-mode isend-mode hydra highlight-symbol highlight-indentation google-c-style golden-ratio flymake-python-pyflakes flymake-go flycheck-pyflakes fish-mode find-file-in-project expand-region exec-path-from-shell emojify emmet-mode dumb-jump dracula-theme doom-themes dockerfile-mode direnv dired-ranger dired-details+ crux counsel-projectile corral company-quickhelp company-go biblio beacon autodisass-java-bytecode auto-complete anaconda-mode all-the-icons-dired aggressive-indent ace-window)))
+ '(pdf-tools-handle-upgrades nil)
  '(which-function-mode t)
  '(word-wrap t))
 (custom-set-faces
