@@ -96,13 +96,25 @@
 (use-package org-download :after org
   :custom
   (org-download-screenshot-method "screencapture -i %s")
-  (org-download-image-dir "~/.org/img")
-  (org-download-heading-lvl nil)
+  ;; (org-download-image-dir "~/.org/img")
+  ;; (org-download-heading-lvl 0)
   :bind
   (:map org-mode-map
 	(("s-y" . org-download-yank)
 	 ("s-Y" . org-download-screenshot)
 	 ("C-c l" . org-store-link))))
+(defun my-org-download-method (link)
+  (let ((filename
+         (file-name-nondirectory
+          (car (url-path-and-query
+                (url-generic-parse-url link)))))
+        ;; Create folder from filename in root img directory
+        (dirname (concat "~/.org/img/"
+                         (file-name-sans-extension (buffer-name)))))
+    (unless (file-exists-p dirname)
+      (make-directory dirname))
+    (expand-file-name filename dirname)))
+(setq org-download-method 'my-org-download-method)
 
 (use-package org-noter
   :after org
