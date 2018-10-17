@@ -96,24 +96,36 @@
 (use-package org-download :after org
   :custom
   (org-download-screenshot-method "screencapture -i %s")
-  ;; (org-download-image-dir "~/.org/img")
-  ;; (org-download-heading-lvl 0)
   :bind
   (:map org-mode-map
 	(("s-y" . org-download-yank)
 	 ("s-Y" . org-download-screenshot)
 	 ("C-c l" . org-store-link))))
+
 (defun my-org-download-method (link)
+  "This is a helper function for org-download.
+
+It creates a folder in the root directory (~/.org/img/) named after the
+org filename (sans extension) and puts all images from that file in there.
+
+Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0bc532770e9533b4fc549438/init.el#L701"
   (let ((filename
          (file-name-nondirectory
           (car (url-path-and-query
                 (url-generic-parse-url link)))))
-        ;; Create folder from filename in root img directory
+        ;; Create folder name with current buffer name, and place in root dir
         (dirname (concat "~/.org/img/"
                          (file-name-sans-extension (buffer-name)))))
+
+    ;; Add timestamp to filename
+    (setq filename-with-timestamp (format "%s%s.%s"
+                                          (file-name-sans-extension filename)
+                                          (format-time-string org-download-timestamp)
+                                          (file-name-extension filename)))
+    ;; Create folder if necessary
     (unless (file-exists-p dirname)
       (make-directory dirname))
-    (expand-file-name filename dirname)))
+    (expand-file-name filename-with-timestamp dirname)))
 (setq org-download-method 'my-org-download-method)
 
 (use-package org-noter
