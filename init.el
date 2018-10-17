@@ -135,6 +135,27 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
   (lambda() org-noter-set-doc-split-fraction 0.6)
   )
 
+(use-package org-ref
+  :config
+  (setq org-latex-listings 'minted)
+  (setq org-latex-custom-lang-environments
+        '(
+          (emacs-lisp "common-lispcode")
+          (python "pythoncode")
+          ))
+  (setq org-latex-minted-options
+        '(("frame" "lines")
+          ;; ("fontsize" "1.2\\scriptsize")
+          ("linenos" "")))
+  (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f"))
+  (setq reftex-default-bibliography '("~/Dropbox/bibliography/references.bib"))
+
+  ;; see org-ref for use of these variables
+  (setq org-ref-bibliography-notes "~/Dropbox/bibliography/notes.org"
+	org-ref-default-bibliography '("~/Dropbox/bibliography/references.bib")
+	org-ref-pdf-directory "~/Dropbox/bibliography/bibtex-pdfs/")
+)
+
 ;; For exporting from .org to Github-flavored Markdown (`org-gfm-export-to-markdown`)
 (use-package ox-gfm :after org)
 (use-package ox-hugo
