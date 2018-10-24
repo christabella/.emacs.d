@@ -140,7 +140,6 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
   (setq org-latex-listings 'minted)
   (setq org-latex-custom-lang-environments
         '(
-          (emacs-lisp "common-lispcode")
           (python "pythoncode")
           ))
   (setq org-latex-minted-options
@@ -153,8 +152,7 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
   ;; see org-ref for use of these variables
   (setq org-ref-bibliography-notes "~/Dropbox/bibliography/notes.org"
 	org-ref-default-bibliography '("~/Dropbox/bibliography/references.bib")
-	org-ref-pdf-directory "~/Dropbox/bibliography/bibtex-pdfs/")
-)
+	org-ref-pdf-directory "~/Dropbox/bibliography/bibtex-pdfs/"))
 
 ;; For exporting from .org to Github-flavored Markdown (`org-gfm-export-to-markdown`)
 (use-package ox-gfm :after org)
@@ -259,7 +257,17 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
 (setq ivy-use-selectable-prompt t)
 
 ;; Globally set Org tags
-(setq org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("question" . ?q)))
+(setq org-tag-alist '(("@work" . ?w) ("@home" . ?o) ("question" . ?q)
+		      ("RL" . ?r)
+		      ("ai_health" . ?h)
+		      ("data_mining" . ?d)
+		      ("CMS" . ?c)
+		      ("MLBP" . ?m)
+		      ("security" . ?s)
+		      ("BDA" . ?b)
+		      ("adversarial" . ?a)
+		      ("Finnish" . ?f)
+		      ))
 
 ;; Syntax highlighting for org
 (setq org-src-fontify-natively t)
