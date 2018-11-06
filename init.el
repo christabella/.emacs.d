@@ -502,6 +502,8 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
    ("C-c k" . counsel-ag))
   :config
   (setq counsel-grep-swiper-limit 20000)
+  ;; Case insensitive grepping
+  (setq counsel-grep-base-command "grep -E -i -n -e %s %s")
   (progn
     (ivy-mode 1)
     (setq ivy-use-virtual-buffers t)
