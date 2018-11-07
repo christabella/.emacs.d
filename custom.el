@@ -26,10 +26,19 @@
 		 ("begin" "$1" "$" "$$" "\\(" "\\["))))
  '(org-hide-emphasis-markers t)
  '(org-indent-indentation-per-level 1)
+ '(org-latex-packages-alist
+   (quote
+    (("" "mathpazo" nil)
+     ("" "upquote" nil)
+     ("" "csquotes" nil)
+     ("" "minted" nil)     "\\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}" "\\usepackage{sectsty}" "\\sectionfont{\\fontsize{12}{15}\\selectfont}" "\\subsectionfont{\\fontsize{10}{10}\\selectfont}" "\\usepackage{algorithm}" "\\usepackage{algpseudocode}" "\\newminted{python}{gobble=4,linenos,fontsize=\\scriptsize}"
+     )))
+ '(org-latex-pdf-process (quote ("latexmk -shell-escape -bibtex -f -pdf %f")))
  '(package-selected-packages
    (quote
-    (ox-reveal org-tree-slide pdf-tools doom-modeline ox-hugo typo org-bullets olivetti material-theme poet-theme load-theme-buffer-local auctex deft smooth-scrolling org-noter occur-x add-node-modules-path browse-kill-ring org ox-gfm browse-kill-ring+ zenburn-theme yapfify which-key wgrep use-package unicode-fonts tern smartparens rjsx-mode realgud ranger rainbow-delimiters pyvenv py-isort protobuf-mode prettier-js phoenix-dark-pink-theme peep-dired parsebib org-journal org-download org-attach-screenshot nyan-mode neotree multiple-cursors move-text meghanada markdown-mode+ magit lua-mode key-chord json-mode isend-mode hydra highlight-symbol highlight-indentation google-c-style golden-ratio flymake-python-pyflakes flymake-go flycheck-pyflakes fish-mode find-file-in-project expand-region exec-path-from-shell emojify emmet-mode dumb-jump dracula-theme doom-themes dockerfile-mode direnv dired-ranger dired-details+ crux counsel-projectile corral company-quickhelp company-go biblio beacon autodisass-java-bytecode auto-complete anaconda-mode all-the-icons-dired aggressive-indent ace-window)))
+    (elpy sos org-ref ox-reveal org-tree-slide pdf-tools doom-modeline ox-hugo typo org-bullets olivetti material-theme poet-theme load-theme-buffer-local auctex deft smooth-scrolling org-noter occur-x add-node-modules-path browse-kill-ring org ox-gfm browse-kill-ring+ zenburn-theme yapfify which-key wgrep use-package unicode-fonts tern smartparens rjsx-mode realgud ranger rainbow-delimiters pyvenv py-isort protobuf-mode prettier-js phoenix-dark-pink-theme peep-dired parsebib org-journal org-download org-attach-screenshot nyan-mode neotree multiple-cursors move-text meghanada markdown-mode+ magit lua-mode key-chord json-mode isend-mode hydra highlight-symbol highlight-indentation google-c-style golden-ratio flymake-python-pyflakes flymake-go flycheck-pyflakes fish-mode find-file-in-project expand-region exec-path-from-shell emojify emmet-mode dumb-jump dracula-theme doom-themes dockerfile-mode direnv dired-ranger dired-details+ crux counsel-projectile corral company-quickhelp company-go biblio beacon autodisass-java-bytecode auto-complete anaconda-mode all-the-icons-dired aggressive-indent ace-window)))
  '(pdf-tools-handle-upgrades nil)
+ '(rcirc-colors pink-bliss-foreground-colors)
  '(which-function-mode t)
  '(word-wrap t))
 (custom-set-faces
