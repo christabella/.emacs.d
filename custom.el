@@ -31,8 +31,8 @@
     (("" "mathpazo" nil)
      ("" "upquote" nil)
      ("" "csquotes" nil)
-     ("" "minted" nil)     "\\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}" "\\usepackage{sectsty}" "\\sectionfont{\\fontsize{12}{15}\\selectfont}" "\\subsectionfont{\\fontsize{10}{10}\\selectfont}" "\\usepackage{algorithm}" "\\usepackage{algpseudocode}" "\\newminted{python}{gobble=4,linenos,fontsize=\\scriptsize}"
-     )))
+     ("" "minted" nil)
+     "\\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}" "\\usepackage{sectsty}" "\\sectionfont{\\fontsize{12}{15}\\selectfont}" "\\subsectionfont{\\fontsize{10}{10}\\selectfont}" "\\usepackage{algorithm}" "\\usepackage{algpseudocode}" "\\newminted{python}{gobble=4,linenos,fontsize=\\scriptsize}")))
  '(org-latex-pdf-process (quote ("latexmk -shell-escape -bibtex -f -pdf %f")))
  '(package-selected-packages
    (quote
@@ -46,7 +46,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-block-begin-line ((t (:family "Iosevka"))))
+ '(org-block ((t (:inherit fixed-pitch :background "#23242f" :foreground "#bd93f9" :height 0.75))))
+ '(org-block-begin-line ((t (:background "#23242f" :foreground "#6272a4" :height 0.7 :family "Iosevka"))))
  '(org-block-end-line ((t (:family "Iosevka"))))
  '(org-hide ((t (:foreground "#282c34" :family "Iosevka"))))
  '(org-indent ((t (:inherit org-hide))))
@@ -54,4 +55,4 @@
  '(org-meta-line ((t (:foreground "#83898d" :height 0.7 :family "Iosevka"))))
  '(org-property-value ((t (:foreground "LightGoldenrod4"))) t)
  '(org-quote ((t (:background "#F2E6CE" :height 10 :family "Iosevka"))))
- '(org-table ((t (:foreground "#6c71c4" :height 0.8 :family "Iosevka")))))
+ '(org-table ((t (:foreground "#6c71c4" :height 0.75 :family "Iosevka")))))
