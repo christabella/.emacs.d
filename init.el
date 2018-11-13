@@ -154,10 +154,19 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
 	org-ref-default-bibliography '("~/Dropbox/bibliography/references.bib")
 	org-ref-pdf-directory "~/Dropbox/bibliography/bibtex-pdfs/"))
 
+;; Underscores and carets don't cause text to be sub- or superscripted
+(setq org-export-with-sub-superscripts nil)
+
 ;; For exporting from .org to Github-flavored Markdown (`org-gfm-export-to-markdown`)
 (use-package ox-gfm :after org)
 (use-package ox-hugo
-  :after ox)
+  :after org)
+
+(use-package ox-reveal
+  :after org
+  :ensure ox-reveal)
+(use-package htmlize
+  :ensure t)
 
 ;;https://emacs.stackexchange.com/a/22591
 (use-package pdf-tools
