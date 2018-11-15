@@ -33,6 +33,72 @@
 ;; So that org-mode will be the pretty Edward Tufte (EtBembo) serif font.
 (set-face-attribute 'variable-pitch nil :family "ETBembo" :height 170)
 
+;; Install use-package (needs to come before any use-package use)
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+;; Smart parens
+(use-package smartparens-config
+  :ensure smartparens
+  :config
+  (sp-local-pair 'org-mode "_" "_" )
+  (sp-local-pair 'org-mode "*" "*" )
+  (sp-local-pair 'org-mode "~" "~" )
+  (sp-local-pair 'org-mode "\[" "\]" )
+  (sp-local-pair 'prog-mode "{" "}" )
+  (sp-local-pair 'latex-mode "$" "$" )
+  (sp-local-pair 'latex-mode "\\left(" "\\right)" :trigger "\\l(")
+  (sp-local-pair '(js-mode js2-mode html-mode) "<span>" "</span>")
+  (sp-local-pair '(js-mode js2-mode html-mode) "<div className=\"{_}\"" "</div>")
+  (progn
+    (show-smartparens-global-mode t)))
+
+;; From https://ebzzry.io/en/emacs-pairs/
+(bind-keys
+ :map smartparens-mode-map
+ ("C-M-s" . smartparens-mode)
+ ("C-<down>" . sp-down-sexp)
+ ("C-<up>"   . sp-up-sexp)
+ ("C-M-<down>" . sp-backward-down-sexp)
+ ("C-M-<up>"   . sp-backward-up-sexp)
+ ("M-]" . sp-forward-sexp)
+ ("M-[" . sp-backward-sexp)
+ ;; ("M-{" . sp-beginning-of-sexp)
+ ;; ("M-}" . sp-end-of-sexp)
+
+ ("C-S-f" . sp-forward-symbol)
+ ("C-S-b" . sp-backward-symbol)
+
+ ("C-]" . sp-rewrap-sexp)
+
+ ;; ("C-<right>" . sp-forward-slurp-sexp)
+ ;; ("M-<right>" . sp-forward-barf-sexp)
+ ;; ("C-<left>"  . sp-backward-slurp-sexp)
+ ;; ("M-<left>"  . sp-backward-barf-sexp)
+
+ ("C-M-t" . sp-transpose-sexp)
+ ("C-M-k" . sp-kill-sexp)
+ ("C-k"   . sp-kill-hybrid-sexp)
+ ("M-k"   . sp-backward-kill-sexp)
+ ("C-M-w" . sp-copy-sexp)
+
+ ("M-<backspace>" . backward-kill-word)
+ ("C-<backspace>" . sp-backward-kill-word)
+ ([remap sp-backward-kill-word] . backward-kill-word)
+
+ ;; ("M-[" . sp-backward-unwrap-sexp)
+ ;; ("M-]" . sp-unwrap-sexp)
+
+ ("C-x C-t" . sp-transpose-hybrid-sexp))
+
+;; Strict mode enforces that pairs are always balanced, so commands like kill-line keep your code well-formed.
+(add-hook 'prog-mode-hook 'turn-on-smartparens-mode)
+(add-hook 'org-mode-hook 'turn-on-smartparens-mode)
+(add-hook 'html-mode-hook 'turn-on-smartparens-mode)
+(add-hook 'markdown-mode-hook 'turn-on-smartparens-mode)
+
+
 ;; Variable pitch from https://xiangji.me/2015/07/13/a-few-of-my-org-mode-customizations/
 (defun set-buffer-variable-pitch ()
   (interactive)
@@ -281,11 +347,6 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
 
 ;; Enable upcase-region
 (put 'upcase-region 'disabled nil)
-
-;; Install use-package
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
 
 (eval-and-compile
   (defvar use-package-verbose t)
