@@ -783,6 +783,9 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
 
 (add-hook 'js-mode-hook (lambda () (aggressive-indent-mode -1)))
 
+;; Shut up Emacs!
+(setq visible-bell 1)
+
 ;; End of packages
 (load custom-file)
 
