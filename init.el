@@ -331,7 +331,6 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
 
 ;; Globally set Org tags
 (setq org-tag-alist '(("@work" . ?w) ("@home" . ?o) ("question" . ?q)
-		      ("RL" . ?r)
 		      ("ai_health" . ?h)
 		      ("data_mining" . ?d)
 		      ("CMS" . ?c)
@@ -339,7 +338,7 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
 		      ("security" . ?s)
 		      ("BDA" . ?b)
 		      ("adversarial" . ?a)
-		      ("Finnish" . ?f)
+		      ("to-read" . ?r)
 		      ))
 
 ;; Syntax highlighting for org
