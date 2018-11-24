@@ -437,11 +437,17 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
   (local-set-key (kbd "M-P") 'recompile)          ; Redo most recent compile cmd
   (local-set-key (kbd "M-]") 'next-error)         ; Go to next error (or msg)
   (local-set-key (kbd "M-[") 'previous-error)     ; Go to previous error or msg
-
+  (bind-key "s-]" 'python-nav-end-of-block python-mode-map)
+  (bind-key "s-[" 'python-nav-beginning-of-block python-mode-map)
+  (bind-key "s-}" 'python-nav-forward-defun python-mode-map)
+  (bind-key "s-{" 'python-nav-backward-defun python-mode-map)
+  ;; No need for below since we have elpy now
+  (elpy-enable)
   ;; Flycheck for Python linting!
-  (flycheck-mode))
+  ;; (flycheck-mode)
+  )
 
-;; Connect go-mode-hook with the function we just defined
+;; Connect python-mode-hook with the function we just defined
 (add-hook 'python-mode-hook 'my-python-mode-hook)
 
 ;; ------------------------------ Java ------------------------------
