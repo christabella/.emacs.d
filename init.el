@@ -58,8 +58,6 @@
 (bind-keys
  :map smartparens-mode-map
  ("C-M-s" . smartparens-mode)
- ("C-<down>" . sp-down-sexp)
- ("C-<up>"   . sp-up-sexp)
  ("C-M-<down>" . sp-backward-down-sexp)
  ("C-M-<up>"   . sp-backward-up-sexp)
  ("M-]" . sp-forward-sexp)
