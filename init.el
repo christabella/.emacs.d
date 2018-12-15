@@ -572,9 +572,11 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
    ("C-c j" . counsel-rg) ;; Faster than counsel-ag
    ("C-c k" . counsel-ag))
   :config
-  (setq counsel-grep-swiper-limit 20000)
-  ;; Case insensitive grepping
-  (setq counsel-grep-base-command "grep -E -i -n -e %s %s")
+  (setq counsel-grep-swiper-limit 50000)
+  ;; Speeding up with rg https://oremacs.com/2017/08/04/ripgrep/
+  (setq counsel-grep-base-command
+	"rg -i -M 120 --no-heading --line-number --color never '%s' %s")
+  ;; (setq counsel-grep-base-command "grep -E -i -n -e %s %s")
   (progn
     (ivy-mode 1)
     (setq ivy-use-virtual-buffers t)
@@ -582,18 +584,18 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
     (ivy-set-actions
      'counsel-find-file
      '(("d" (lambda(x) (delete-file (expand-file-name x)))
-        "delete"
-        )))
+	"delete"
+	)))
     (ivy-set-actions
      'ivy-switch-buffer
      '(("k"
-        (lambda (x)
+	(lambda (x)
           (kill-buffer x)
           (ivy--reset-state ivy-last))
-        "kill")
+	"kill")
        ("j"
-        ivy--switch-buffer-other-window-action
-        "other window")))))
+	ivy--switch-buffer-other-window-action
+	"other window")))))
 
 (use-package which-key
   :diminish which-key-mode
@@ -794,4 +796,3 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
 
 (provide 'init)
 ;;; init.el ends here
-
