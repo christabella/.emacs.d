@@ -382,7 +382,7 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes" )
 
 ;; Set theme
-;; (load-theme 'doom-one t)
+(load-theme 'doom-one t)
 ;; (load-theme 'doom-solarized-light t)
 
 ;; Doom theme
