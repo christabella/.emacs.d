@@ -301,8 +301,11 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
 
 ;; Emoji
 (use-package emojify
-  :bind (("C-c e" . emojify-insert-emoji))
-  :init (add-hook 'after-init-hook 'global-emojify-mode))
+  :init
+  (add-hook 'after-init-hook 'global-emojify-mode)
+  ;; Disable plain text emojis (no 'ascii' option)
+  (setq emojify-emoji-styles '(github unicode)) 
+  :bind (("C-c e" . emojify-insert-emoji)))
 
 ;; Set user details
 (setq user-full-name "Christabella Irwanto"
