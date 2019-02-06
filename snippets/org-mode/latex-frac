@@ -1,6 +1,5 @@
 # -*- mode: snippet -*-
-# name: latex multi-line snippet
-# key: \f
+# name: latex-frac
+# key: frac
 # --
-
-\frac{$0}{}
+\frac{${1:num}}{${2:denom}}
