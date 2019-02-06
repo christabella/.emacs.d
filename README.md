@@ -12,6 +12,10 @@
 - [`nyan-mode`](https://github.com/??) because :rainbow:
 - and many more, for sure!
 
+# Loved themes :nail_care:
+- `doom-dracula`
+- `kaolin-ocean`
+
 # Emacs installation
 ```
 brew install emacs --with-cocoa --with-gnutls --with-dbus --with-librsvg --with-imagemagick@6 --with-mailutils --devel
