@@ -212,8 +212,9 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
   (setq org-latex-listings 'minted)
   (setq org-latex-custom-lang-environments
         '(
-          (python "pythoncode")
-          ))
+	  (python "\\begin{minted}{python}
+		 %s\\end{minted}
+		 ")))
   (setq org-latex-minted-options
         '(("frame" "lines")
           ;; ("fontsize" "1.2\\scriptsize")
