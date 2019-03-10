@@ -5,16 +5,20 @@
 # Loved packages :heart_eyes_cat:
 - [`magit`](https://magit.vc) for magic.
 - [`org-download`](https://github.com/abo-abo/org-download/) for inserting images into `org` files.
-- [`org-journal`](https://github.com/??) for easy journalling.
-- [`ox-hugo`](https://github.com/??) for exporting Hugo blogposts.
-- [`ox-reveal`](https://github.com/??) for exporting Reveal.js presentations.
-- [`emojify`](https://github.com/??) because :100: :curry:
-- [`nyan-mode`](https://github.com/??) because :rainbow:
+- [`org-journal`](https://github.com/bastibe/org-journal) for easy journalling.
+- [`ox-hugo`](https://github.com/kaushalmodi/ox-hugo) for exporting Hugo blogposts.
+- [`ox-reveal`](https://github.com/hexmode/ox-reveal) for exporting Reveal.js presentations.
+- [`emojify`](https://github.com/iqbalansari/emacs-emojify) because :100: :curry:
+- [`nyan-mode`](https://github.com/TeMPOraL/nyan-mode) because :rainbow:
 - and many more, for sure!
 
 # Loved themes :nail_care:
+## Dark
 - `doom-dracula`
 - `kaolin-ocean`
+##  Light
+- `kaolin-breeze`
+- `kaolin-light`
 
 # Emacs installation
 ```
