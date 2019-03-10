@@ -3,7 +3,7 @@
 ![Org mode in fullscreen](screenshots/org.png "Org mode")
 
 # Loved packages :heart_eyes_cat:
-- [`magit`](https://magit.vc) for magic.
+- [`magit`](https://magit.vc) for Git magic :sparkles:
 - [`org-download`](https://github.com/abo-abo/org-download/) for inserting images into `org` files.
 - [`org-journal`](https://github.com/bastibe/org-journal) for easy journalling.
 - [`ox-hugo`](https://github.com/kaushalmodi/ox-hugo) for exporting Hugo blogposts.
