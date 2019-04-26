@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: latex-epsilon
+# key: eps
+# --
+
+$\epsilon$

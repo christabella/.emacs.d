@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: meta
+# key: meta
+# --
+
+#+TITLE: ${1:title}
+#+SUBTITLE: ${2:subtitle}
+#+AUTHOR: Christabella Irwanto
+#+OPTIONS: toc:nil
+$0
