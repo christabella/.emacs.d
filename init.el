@@ -54,6 +54,7 @@
   (sp-local-pair 'org-mode "*" "*" )
   (sp-local-pair 'org-mode "~" "~" )
   (sp-local-pair 'org-mode "\[" "\]" )
+  (sp-local-pair 'org-mode "$" "$" )
   (sp-local-pair 'prog-mode "{" "}" )
   (sp-local-pair 'latex-mode "$" "$" )
   (sp-local-pair 'latex-mode "\\left(" "\\right)" :trigger "\\l(")
