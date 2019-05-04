@@ -462,6 +462,17 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
 ;; Connect python-mode-hook with the function we just defined
 (add-hook 'python-mode-hook 'my-python-mode-hook)
 
+;; ------------------------------ C++ ------------------------------
+
+(use-package clang-format
+  :ensure t
+  :config
+  (progn
+    (setq clang-format-executable "/usr/local/bin/clang-format")
+    (add-hook 'c++-mode-hook (lambda () (add-hook 'before-save-hook 'clang-format-buffer nil t)))
+    (add-hook 'c-mode-hook (lambda () (add-hook 'before-save-hook 'clang-format-buffer nil t)))))
+
+
 ;; ------------------------------ Java ------------------------------
 (use-package autodisass-java-bytecode
   :ensure t
