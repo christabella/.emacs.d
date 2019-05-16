@@ -209,6 +209,7 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
   )
 
 (use-package org-ref
+  :after org
   :config
   (setq org-latex-listings 'minted)
   (setq org-latex-custom-lang-environments
@@ -226,7 +227,12 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
   ;; see org-ref for use of these variables
   (setq org-ref-bibliography-notes "~/Dropbox/bibliography/notes.org"
 	org-ref-default-bibliography '("~/Dropbox/bibliography/references.bib")
-	org-ref-pdf-directory "~/Dropbox/bibliography/bibtex-pdfs/"))
+	org-ref-pdf-directory "~/Dropbox/bibliography/bibtex-pdfs/")
+  :bind (("C-c c" . org-ref-insert-link)))
+
+(use-package ox-hugo-org-ref-overrides
+  :after org org-ref ox-hugo
+  :load-path "./lisp/")
 
 ;; Underscores and carets don't cause text to be sub- or superscripted
 (setq org-export-with-sub-superscripts nil)
