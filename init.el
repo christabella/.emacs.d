@@ -1,5 +1,5 @@
 ;;; package --- Summary
-;;; Bella's init file
+;;; Bella's init file 2
 
 ;; Enable package archives
 (require 'package)
