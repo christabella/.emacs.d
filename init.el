@@ -628,6 +628,10 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
 	ivy--switch-buffer-other-window-action
 	"other window")))))
 
+(use-package deadgrep
+  :if (executable-find "rg")
+  :bind* (("C-'" . deadgrep)))
+
 (use-package which-key
   :diminish which-key-mode
   :config (add-hook 'after-init-hook 'which-key-mode))
