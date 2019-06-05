@@ -340,12 +340,6 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
 ;; To follow links with RET
 (setq org-return-follows-link t)
 
-;; M-x without a caret
-(setq ivy-initial-inputs-alist nil)
-
-;; Make the prompt selectable
-(setq ivy-use-selectable-prompt t)
-
 ;; Globally set Org tags
 (setq org-tag-alist '(("@work" . ?w) ("@home" . ?o) ("question" . ?q)
 		      ("export" . ?e)
@@ -611,6 +605,10 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
   (progn
     (ivy-mode 1)
     (setq ivy-use-virtual-buffers t)
+    ;; M-x without a caret
+    (setq ivy-initial-inputs-alist nil)
+    ;; Make the prompt selectable
+    (setq ivy-use-selectable-prompt t)
     (define-key read-expression-map (kbd "C-r") #'counsel-expression-history)
     (ivy-set-actions
      'counsel-find-file
