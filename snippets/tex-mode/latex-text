@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: latex-equation
+# key: \t
+# --
+
+\text{$0}

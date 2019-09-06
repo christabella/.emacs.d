@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: latex multi-line snippet
+# key: \[
+# --
+
+\[$0\]

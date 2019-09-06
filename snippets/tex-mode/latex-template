@@ -1,0 +1,46 @@
+# -*- mode: snippet -*-
+# name: latex-template
+# key: template
+# --
+
+\documentclass[a4paper]{article}
+
+%% Reduce section font sizes
+\usepackage{sectsty}
+\sectionfont{\fontsize{12}{10}\selectfont}
+
+\usepackage[skip=2pt]{caption}  % Reduce caption margins
+
+\usepackage{mwe}  %% For two figures side-by-side https://tex.stackexchange.com/questions/5769/two-figures-side-by-side
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{pgfplots}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+\pgfplotsset{compat=1.14}
+\usepackage{csquotes}
+\usepackage{upquote}  %% Make verbatim quotes "straight" instead of "curly"
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+
+
+\title{$0}
+\author{Christabella Irwanto}
+
+\begin{document}
+\maketitle
+
+\end{document}
