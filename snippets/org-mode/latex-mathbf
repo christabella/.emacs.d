@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: mathbf (math calligraphy)
+# key: bf
+# --
+
+$\mathbf{$0}$
