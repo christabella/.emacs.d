@@ -45,8 +45,8 @@
     (load file)))
 
 ;; Global keybinding or overrides
-(global-set-key (kbd "S-s-<up>") 'flymake-goto-next-error)
-(global-set-key (kbd "S-s-<down>") 'flymake-goto-prev-error)
+(global-set-key (kbd "S-s-<up>") 'flymake-goto-prev-error)
+(global-set-key (kbd "S-s-<down>") 'flymake-goto-next-error)
 (global-set-key (kbd "C-w") 'kill-region-or-backward-word)
 (global-set-key (kbd "C-z") 'undo)
 (global-set-key (kbd "C-c b") 'browse-url-at-point)
