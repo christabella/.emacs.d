@@ -249,7 +249,8 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
 
 (use-package ox-reveal
   :after org
-  :ensure ox-reveal)
+  :ensure ox-reveal
+  :config (require 'htmlize))
 
 ;;https://emacs.stackexchange.com/a/22591
 (use-package pdf-tools
