@@ -3,4 +3,8 @@
 # key: img
 # --
 
-{\centering\includegraphics[width=0.5\textwidth]{$0}}
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{$0}
+\end{figure}
+
