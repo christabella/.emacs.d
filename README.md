@@ -16,6 +16,7 @@
 ## Dark
 - `doom-dracula`
 - `kaolin-ocean`
+- `doom-nord`
 ##  Light
 - `kaolin-breeze`
 - `kaolin-light`
