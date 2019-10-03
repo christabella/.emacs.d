@@ -442,12 +442,20 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
 ;; Window management
 (use-package ace-window
   ;; :init (add-to-list 'golden-ratio-extra-commands 'ace-window)
-  :bind (("M-q" . ace-window)))
+  :bind (("M-q" . ace-window) ("M-Q" . ace-delete-window)))
 
 ;; Automatic indentation
 (use-package aggressive-indent
   :diminish aggressive-indent-mode
   :config (add-hook 'prog-mode-hook 'aggressive-indent-mode))
+
+(use-package flycheck
+  :config (setq flycheck-highlighting-mode 'lines))
+
+(use-package which-key
+  :diminish which-key-mode
+  :init
+  (add-hook 'after-init-hook 'which-key-mode))
 
 ;; ---------------------------------------- Python ----------------------------------
 
