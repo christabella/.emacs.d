@@ -461,25 +461,42 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
 
 ;; Anaconda
 (use-package anaconda-mode
+  :defer t
+  :bind (:map
+         anaconda-mode-map
+         ("M-," . anaconda-mode-go-back)
+         ;; As far as I can see this behaves like find-definition for functions
+         ;; and since find-definition does not seem to work on variables anyway
+         ;; we can also just always use this.
+         ("M-." . anaconda-mode-find-assignments))
   :init
   (add-hook 'python-mode-hook 'anaconda-mode)
-  (add-hook 'python-mode-hook 'anaconda-eldoc-mode))
+  (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
+  )
 
 ;; Disable aggressive-indent-mode in Python
 (add-hook 'python-mode-hook (lambda () (aggressive-indent-mode -1)))
 
+(add-hook 'python-mode-hook ;; YAPF-ify before every save
+	  (lambda () (add-hook 'before-save-hook 'yapfify-buffer nil t)))
+
 ;; Define function to call when python-mode loads
 (defun my-python-mode-hook ()
-  (local-set-key (kbd "M-p") 'compile)            ; Invoke compiler
-  (local-set-key (kbd "M-P") 'recompile)          ; Redo most recent compile cmd
+  ;; (local-set-key (kbd "M-p") 'compile)            ; Invoke compiler
+  ;; (local-set-key (kbd "M-P") 'recompile)          ; Redo most recent compile cmd
   (local-set-key (kbd "M-]") 'next-error)         ; Go to next error (or msg)
   (local-set-key (kbd "M-[") 'previous-error)     ; Go to previous error or msg
+  (bind-key "M-n" 'python-nav-forward-block python-mode-map)
+  (bind-key "M-p" 'python-nav-backward-block python-mode-map)
   (bind-key "s-]" 'python-nav-end-of-block python-mode-map)
   (bind-key "s-[" 'python-nav-beginning-of-block python-mode-map)
   (bind-key "s-}" 'python-nav-forward-defun python-mode-map)
   (bind-key "s-{" 'python-nav-backward-defun python-mode-map)
   ;; No need for below since we have elpy now
   (elpy-enable)
+  (bind-key "C-<return>" 'elpy-shell-send-region-or-buffer-and-step-and-go elpy-mode-map)
+  ;; (define-key elpy-mode-map (kbd "<S-return>") 'elpy-shell-send-statement-and-step)
+
   ;; Flycheck for Python linting!
   ;; (flycheck-mode)
   )
