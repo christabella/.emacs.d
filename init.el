@@ -358,15 +358,11 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
 (setq org-return-follows-link t)
 
 ;; Globally set Org tags
-(setq org-tag-alist '(("@work" . ?w) ("@home" . ?o) ("question" . ?q)
+(setq org-tag-alist '(("@work" . ?w)
+		      ("@home" . ?o)
+		      ("question" . ?q)
 		      ("export" . ?e)
-		      ("ai_health" . ?h)
-		      ("data_mining" . ?d)
-		      ("CMS" . ?c)
-		      ("MLBP" . ?m)
-		      ("security" . ?s)
-		      ("BDA" . ?b)
-		      ("adversarial" . ?a)
+		      ("gratitude" . ?g)
 		      ("to-read" . ?r)
 		      ))
 
