@@ -32,13 +32,41 @@
      ("" "upquote" nil)
      ("" "csquotes" nil)
      ("" "minted" nil)
-     "\\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}" "\\usepackage{sectsty}" "\\sectionfont{\\fontsize{12}{15}\\selectfont}" "\\subsectionfont{\\fontsize{10}{10}\\selectfont}" "\\usepackage{algorithm}" "\\usepackage{algpseudocode}")))
+     "\\usepackage[left=1in,top=1in,right=1in,bottom=1.5in]{geometry}" "\\usepackage{sectsty}" "\\sectionfont{\\fontsize{12}{15}\\selectfont}" "\\subsectionfont{\\fontsize{10}{10}\\selectfont}" "\\usepackage{algorithm}" "\\usepackage{esdiff}" "\\usepackage{algpseudocode}")))
  '(org-latex-pdf-process (quote ("latexmk -shell-escape -bibtex -f -pdf %f")))
  '(package-selected-packages
    (quote
-    (lisp-mode pandoc kaolin-themes elpy sos org-ref ox-reveal org-tree-slide pdf-tools doom-modeline ox-hugo typo org-bullets olivetti material-theme poet-theme load-theme-buffer-local auctex deft smooth-scrolling org-noter occur-x add-node-modules-path browse-kill-ring org ox-gfm browse-kill-ring+ zenburn-theme yapfify which-key wgrep use-package unicode-fonts tern smartparens rjsx-mode realgud ranger rainbow-delimiters pyvenv py-isort protobuf-mode prettier-js phoenix-dark-pink-theme peep-dired parsebib org-journal org-download org-attach-screenshot nyan-mode neotree multiple-cursors move-text meghanada markdown-mode+ magit lua-mode key-chord json-mode isend-mode hydra highlight-symbol highlight-indentation google-c-style golden-ratio flymake-python-pyflakes flymake-go flycheck-pyflakes fish-mode find-file-in-project expand-region exec-path-from-shell emojify emmet-mode dumb-jump dracula-theme doom-themes dockerfile-mode direnv dired-ranger dired-details+ crux counsel-projectile corral company-quickhelp company-go biblio beacon autodisass-java-bytecode auto-complete anaconda-mode all-the-icons-dired aggressive-indent ace-window)))
+    (string-inflection multi-line prog-mode elisp-mode lisp-mode pandoc kaolin-themes elpy sos org-ref ox-reveal org-tree-slide pdf-tools doom-modeline ox-hugo typo org-bullets olivetti material-theme poet-theme load-theme-buffer-local auctex deft smooth-scrolling org-noter occur-x add-node-modules-path browse-kill-ring org ox-gfm browse-kill-ring+ zenburn-theme yapfify which-key wgrep use-package unicode-fonts tern smartparens rjsx-mode realgud ranger rainbow-delimiters pyvenv py-isort protobuf-mode prettier-js phoenix-dark-pink-theme peep-dired parsebib org-journal org-download org-attach-screenshot nyan-mode neotree multiple-cursors move-text meghanada markdown-mode+ magit lua-mode key-chord json-mode isend-mode hydra highlight-symbol highlight-indentation google-c-style golden-ratio flymake-python-pyflakes flymake-go flycheck-pyflakes fish-mode find-file-in-project expand-region exec-path-from-shell emojify emmet-mode dumb-jump dracula-theme doom-themes dockerfile-mode direnv dired-ranger dired-details+ crux counsel-projectile corral company-quickhelp company-go biblio beacon autodisass-java-bytecode auto-complete anaconda-mode all-the-icons-dired aggressive-indent ace-window)))
  '(pdf-tools-handle-upgrades nil)
  '(rcirc-colors pink-bliss-foreground-colors)
+ '(safe-local-variable-values
+   (quote
+    ((org-ref-pdf-directory . "/Users/christabellairwanto/Repos/deep-probabilistic-models"))))
+ '(tramp-remote-path
+   (quote
+    (tramp-own-remote-path tramp-default-remote-path "/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin" "/local/bin" "/local/freeware/bin" "/local/gnu/bin" "/usr/freeware/bin" "/usr/pkg/bin" "/usr/contrib/bin" "/opt/bin" "/opt/sbin" "/opt/local/bin")) nil (tramp))
+ '(vc-annotate-background "#282a36")
+ '(vc-annotate-color-map
+   (list
+    (cons 20 "#50fa7b")
+    (cons 40 "#85fa80")
+    (cons 60 "#bbf986")
+    (cons 80 "#f1fa8c")
+    (cons 100 "#f5e381")
+    (cons 120 "#face76")
+    (cons 140 "#ffb86c")
+    (cons 160 "#ffa38a")
+    (cons 180 "#ff8ea8")
+    (cons 200 "#ff79c6")
+    (cons 220 "#ff6da0")
+    (cons 240 "#ff617a")
+    (cons 260 "#ff5555")
+    (cons 280 "#d45558")
+    (cons 300 "#aa565a")
+    (cons 320 "#80565d")
+    (cons 340 "#6272a4")
+    (cons 360 "#6272a4")))
+ '(vc-annotate-very-old-color nil)
  '(which-function-mode t)
  '(word-wrap t))
 (custom-set-faces

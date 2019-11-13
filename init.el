@@ -611,7 +611,7 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
          ("C-x M-g" . magit-blame))
   :init (setq magit-auto-revert-mode nil)
   ;; https://emacs.stackexchange.com/questions/28496/magit-status-always-split-vertically
-  (setq split-height-threshold nil) (setq split-width-threshold 0)
+  (setq split-height-threshold nil) (setq split-width-threshold 200)
   :config
   (add-hook 'magit-mode-hook 'hl-line-mode))
 
