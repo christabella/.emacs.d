@@ -153,8 +153,8 @@
 		     ;;  'doom-solarized-light
 		     ;;  (current-buffer))
 		     ))
-  :bind (("C-c C-g" . org-capture)
-         ("C-c C-a" . org-agenda)
+  :bind (("C-M-S-s-c" . org-capture)
+         ("C-M-S-s-a" . org-agenda)
 	 ("C-<up>" . org-move-subtree-up)
 	 ("C-<down>" . org-move-subtree-down)
 	 ("M-n" . outline-next-visible-heading)
@@ -755,7 +755,8 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
 
 (global-set-key (kbd "C-c C-f") 'toggle-frame-fullscreen)
 
-(global-set-key (kbd "C-x j") 'org-journal-new-entry)
+;; Hyper-J for journal
+(global-set-key (kbd "C-M-S-s-j") 'org-journal-new-entry)
 
 ;; ---------------------------------------- Go ----------------------------------
 
