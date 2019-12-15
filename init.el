@@ -215,29 +215,35 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
 
 (use-package org-ref
   :after org
-  :config
+  :ensure t
+  :init
   (setq org-latex-listings 'minted)
   (setq org-latex-custom-lang-environments
         '(
-	  (python "\\begin{minted}{python}
+	  (sh "\\begin{minted}[style=friendly,bgcolor=friendlybg]{shell}
+		 %s\\end{minted}
+		 ")	  ;; For some reason minted python lexer is not working on my mac :(
+	  (python "\\begin{minted}[style=friendly,bgcolor=friendlybg]{shell}
 		 %s\\end{minted}
 		 ")))
   (setq org-latex-minted-options
         '(("frame" "lines")
-          ;; ("fontsize" "1.2\\scriptsize")
+          ("fontsize" "0.8\\scriptsize")
           ("linenos" "")))
   (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f"))
   (setq reftex-default-bibliography '("~/Dropbox/bibliography/references.bib"))
+  (add-hook 'bibtex-mode-hook ;; Sort bibliography before every save
+	    (lambda () (add-hook 'before-save-hook 'bibtex-sort-buffer nil t)))
 
   ;; see org-ref for use of these variables
   (setq org-ref-bibliography-notes "~/Dropbox/bibliography/notes.org"
-	org-ref-default-bibliography '("~/Dropbox/bibliography/references.bib")
-	;; org-ref-pdf-directory "~/repos/deep-probabilistic-models/papers/"
-)
+	org-ref-pdf-directory "~/repos/deep-probabilistic-models/papers/"
+	;; org-ref-pdf-directory "~/Documents/Papers/"
+	org-ref-default-bibliography '("~/Dropbox/bibliography/references.bib"))
   :bind (("C-c c" . org-ref-insert-link)
 	 ("C-c x" . arxiv-add-bibtex-entry)
 	 ("C-c C-x x" . arxiv-get-pdf-add-bibtex-entry)
-))
+	 ))
 
 (use-package ox-hugo-org-ref-overrides
   :after org org-ref ox-hugo
