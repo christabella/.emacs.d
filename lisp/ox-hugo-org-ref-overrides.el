@@ -84,7 +84,8 @@ of format strings used."
 
 (add-to-list 'org-ref-formatted-citation-formats
              '("md"
-               ("article" . "${author}, *${title}*, ${journal}, *${volume}(${number})*, ${pages} (${year}). ${doi}")
+               ;; ("article" . "${author}, *${title}*, ${journal}, *${volume}(${number})*, ${pages} (${year}). ${doi}")
+               ("article" . "${author} (${year}), [*${title}*](${url}), ${journal}.")
                ("inproceedings" . "${author}, *${title}*, In ${editor}, ${booktitle} (pp. ${pages}) (${year}). ${address}: ${publisher}.")
                ("book" . "${author}, *${title}* (${year}), ${address}: ${publisher}.")
                ("phdthesis" . "${author}, *${title}* (Doctoral dissertation) (${year}). ${school}, ${address}.")
