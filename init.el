@@ -269,6 +269,60 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
   :ensure ox-reveal
   :config (require 'htmlize))
 
+(require 's)  ;; For s-join
+(use-package deft
+  :after org
+  :init
+  (defun close-deft ()
+    (interactive)
+    (quit-window)
+    (deft-filter-clear))
+  :bind
+  ("C-M-S-s-d" . deft)
+  ("C-M-S-s-l" . jethro/get-linked-files)
+  ("C-M-S-s-z" . org-insert-zettel)
+  ("C-M-S-s-k" . close-deft)
+  ("C-M-S-s-?" . jethro/deft-insert-boilerplate)
+  :custom
+  (deft-use-filter-string-for-filename t)
+  (deft-default-extension "org")
+  (deft-directory "~/.org")
+  (deft-extensions '("org"))
+  (deft-use-filename-as-title t)
+  (deft-recursive t)
+  :config
+  (setq zettel-indicator "§")
+  (defun jethro/deft-insert-boilerplate ()
+    (interactive)
+    (when (= (buffer-size (current-buffer)) 0)
+      (let ((title (s-join " " (-map #'capitalize (split-string (file-name-sans-extension (buffer-name)) "_")))))
+        (insert "#+SETUPFILE:./hugo_zettel.setup\n")
+        (insert "#+TITLE: ")
+        (insert title)
+	(insert "\n#+hugo_tags: ml\n\n\n\n")  ;; Very likely to be ML :shrug:
+        (insert "bibliography:")
+        (insert (car org-ref-default-bibliography))
+        )))
+  (defun org-insert-zettel (file-name)
+    "Finds a file, inserts it as a link with the base file name as the link name, and adds the zd-link-indicator I use to the front."
+    (interactive (list (completing-read "File: " (deft-find-all-files-no-prefix))))
+    (org-insert-link nil (concat "file:" (file-name-base file-name) "." (file-name-extension file-name)) (concat zettel-indicator (file-name-base file-name))))
+  (defun jethro/get-linked-files ()
+    "Show links to this file."
+    (interactive)
+    (let* ((search-term (file-name-nondirectory buffer-file-name))
+           (files deft-all-files)
+	   (tnames (mapcar #'file-truename files)))
+      (multi-occur
+       (mapcar (lambda (x)
+	         (with-current-buffer
+		     (or (get-file-buffer x) (find-file-noselect x))
+		   (widen)
+		   (current-buffer)))
+	       files)
+       search-term
+       3))))
+
 ;;https://emacs.stackexchange.com/a/22591
 (use-package pdf-tools
   :ensure t
