@@ -695,6 +695,7 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
    ("C-c C-r" . ivy-resume)
    ("C-j" . ivy-immediate-done)
    ("M-x" . counsel-M-x)
+   ("M-y" . counsel-yank-pop)
    ("C-x C-f" . counsel-find-file)
    ("C-c h f" . counsel-describe-function)
    ("C-c h v" . counsel-describe-variable)
