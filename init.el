@@ -303,10 +303,14 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
         (insert "bibliography:")
         (insert (car org-ref-default-bibliography))
         )))
+
   (defun org-insert-zettel (file-name)
     "Finds a file, inserts it as a link with the base file name as the link name, and adds the zd-link-indicator I use to the front."
     (interactive (list (completing-read "File: " (deft-find-all-files-no-prefix))))
-    (org-insert-link nil (concat "file:" (file-name-base file-name) "." (file-name-extension file-name)) (concat zettel-indicator (file-name-base file-name))))
+    (let ((org-link-file-type 'relative))
+      (org-insert-link nil (concat "file:" (concat deft-directory file-name))
+                       (concat zettel-indicator (file-name-base file-name)))))
+
   (defun jethro/get-linked-files ()
     "Show links to this file."
     (interactive)
