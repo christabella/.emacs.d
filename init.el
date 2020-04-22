@@ -300,8 +300,9 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
         (insert "#+TITLE: ")
         (insert title)
 	(insert "\n#+hugo_tags: ml\n\n\n\n")  ;; Very likely to be ML :shrug:
-        (insert "bibliography:")
+        (insert "* \nbibliography:")
         (insert (car org-ref-default-bibliography))
+	(goto-char (point-max))
         )))
 
   (defun org-insert-zettel (file-name)
