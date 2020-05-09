@@ -16,7 +16,8 @@ Very much borrowed from and inspired by [Jethro Kuan's Emacs config](https://git
 
 # Loved themes :nail_care:
 ## Dark
-- `doom-dracula`
+- `doom-challenger-deep` :rocket:
+- `doom-dracula` :bat:
 - `kaolin-ocean`
 - `doom-nord`
 ##  Light
@@ -24,8 +25,10 @@ Very much borrowed from and inspired by [Jethro Kuan's Emacs config](https://git
 - `kaolin-light`
 
 # Emacs installation
+[[http://xenodium.com/emacs-on-macos-mojave/][Emacs on macOS Mojave]]
 ```
-brew install emacs --with-cocoa --with-gnutls --with-dbus --with-librsvg --with-imagemagick@6 --with-mailutils --devel
+brew tap d12frosted/emacs-plus
+brew install emacs-plus --without-spacemacs-icon --HEAD
 ```
 In particular, we need ImageMagick so that `org-image-actual-width` will work as expected.
 
