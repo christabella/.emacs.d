@@ -470,10 +470,15 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
 ;; Display column number in modeline
 (setq column-number-mode t)
 
+;; Natural title bar options from `brew info emacs-plus`
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+(add-to-list 'default-frame-alist '(ns-appearance . dark))
+
 ;; Add /themes to custom theme load path
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes" )
 
 ;; Set theme
+;; (load-theme 'doom-challenger-deep t)
 (load-theme 'doom-dracula t)
 ;; (load-theme 'doom-solarized-light t)
 
