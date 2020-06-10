@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: reveal split
-# key: split
-# --
-
-#+ATTR_REVEAL: :split
