@@ -960,6 +960,8 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
   :config
   (add-hook 'prettier-js-mode-hook 'add-node-modules-path))
 
+(use-package string-inflection :bind ("C-c s" . string-inflection-cycle))
+
 (add-hook 'js-mode-hook (lambda () (aggressive-indent-mode -1)))
 
 ;; Shut up Emacs!
