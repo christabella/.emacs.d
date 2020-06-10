@@ -94,6 +94,7 @@ of format strings used."
                ("proceedings" . "${editor} (Eds.), _${booktitle}_ (${year}). ${address}: ${publisher}.")
                ("unpublished" . "${author}, *${title}* (${year}). Unpublished manuscript.")
                ("misc" . "${author} (${year}). *${title}*. Retrieved from [${howpublished}](${howpublished}). ${note}.")
+               ("online" . "${author} (${year}). [*${title}*](${url}). ${note}.")
                (nil . "${author}, *${title}* (${year}).")))
 
 
