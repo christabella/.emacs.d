@@ -275,6 +275,10 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
   (require 'ox-extra)
   (ox-extras-activate '(ignore-headlines)))
 
+(use-package org-cliplink
+  :bind
+  ("C-c u" . 'org-cliplink))  ;; u for URL
+
 ;; Underscores and carets don't cause text to be sub- or superscripted
 (setq org-export-with-sub-superscripts nil)
 
@@ -301,7 +305,6 @@ Inspired by https://github.com/daviderestivo/emacs-config/blob/6086a7013020e19c0
   ("C-M-S-s-l" . jethro/get-linked-files)
   ("C-M-S-s-z" . org-insert-zettel)
   ("C-M-S-s-k" . close-deft)
-  ("C-M-S-s-?" . jethro/deft-insert-boilerplate)
   :custom
   (deft-use-filter-string-for-filename t)
   (deft-default-extension "org")
