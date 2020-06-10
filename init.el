@@ -22,13 +22,24 @@
 ;; Pixel scroll mode
 (with-eval-after-load "postpone"
   (when (version<= "26.1" emacs-version)
-    (pixel-scroll-mode 1)))
+    ;;; Scrolling.
+    ;; Good speed and allow scrolling through large images (pixel-scroll).
+    ;; Note: Scroll lags when point must be moved but increasing the number
+    ;;       of lines that point moves in pixel-scroll.el ruins large image
+    ;;       scrolling. So unfortunately I think we'll just have to live with
+    ;;       this.
+    (pixel-scroll-mode)
+    (setq pixel-dead-time 0) ; Never go back to the old scrolling behaviour.
+    (setq pixel-resolution-fine-flag t) ; Scroll by number of pixels instead of lines (t = frame-char-height pixels).
+    (setq mouse-wheel-scroll-amount '(1)) ; Distance in pixel-resolution to scroll each mouse wheel event.
+    (setq mouse-wheel-progressive-speed nil) ; Progressive speed is too fast for me.
+    ))
 
 ;; Fullscreen
 (setq ns-use-native-fullscreen nil)
 
 ;; Set fonts
-(set-face-attribute 'default nil :family "Iosevka" :height 130)
+(set-face-attribute 'default nil :family "Iosevka" :height 140)
 (set-face-attribute 'fixed-pitch nil :family "Iosevka")
 ;; So that org-mode will be the pretty Edward Tufte (EtBembo) serif font.
 (set-face-attribute 'variable-pitch nil :family "ETBembo" :height 170)
@@ -109,6 +120,7 @@
 (add-hook 'org-mode-hook 'turn-on-smartparens-mode)
 (add-hook 'html-mode-hook 'turn-on-smartparens-mode)
 (add-hook 'markdown-mode-hook 'turn-on-smartparens-mode)
+(add-hook 'bibtex-mode-hook 'turn-on-smartparens-mode)
 
 
 ;; Variable pitch from https://xiangji.me/2015/07/13/a-few-of-my-org-mode-customizations/
@@ -126,6 +138,13 @@
 (add-hook 'Info-mode-hook 'set-buffer-variable-pitch)
 
 ;; Org
+;; Add "DOING" to org-todo-keywords
+(setq org-todo-keywords
+      '((sequence "TODO" "DOING" "|" "DONE")))
+;; Setting Colours (faces) for todo states to give clearer view of work
+(setq org-todo-keyword-faces
+      '(("DOING" . "pink")))
+
 (use-package org
   :mode ("\\.org\\'" . org-mode)
   :init (add-hook 'org-mode-hook
