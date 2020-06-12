@@ -152,15 +152,18 @@
 		     (setq-local truncate-lines nil)
 		     (org-indent-mode)
 		     (setq org-support-shift-select t)
+		     (setq org-journal-file-format "%Y-%m-%d.org")
 		     ;; Hardcode image width in in pixels
 		     ;; We can also to half of the screen width: (setq org-image-actual-width (/ (display-pixel-width) 2))
 		     (setq org-image-actual-width '(600))
 		     (org-display-inline-images) ;; Display inline images
 		     (org-bullets-mode 1)        ;; For UTF-8 bullets
-		     (olivetti-mode 1)           ;; Centers text in the buffer
+		     ;; (olivetti-mode 1)           ;; Centers text in the buffer
 		     ;; (flyspell-mode 1)           ;; Catch Spelling mistakes
 		     (typo-mode 1)               ;; Good for symbols like em-dash
 		     (blink-cursor-mode 0)       ;; Reduce visual noise
+		     ;; toggle latex fragments for entire buffer ()
+		     ;; For executing code in org mode with org-babel
 		     (add-to-list 'org-babel-load-languages '("python" . t))
 		     (org-babel-do-load-languages
 		      'org-babel-load-languages
